@@ -1,0 +1,4282 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+images/
+  fish.png
+  TropicalFish01.jpg
+  TropicalFish02.jpg
+  TropicalFish03.jpg
+  TropicalFish04.jpg
+  TropicalFish05.jpg
+  TropicalFish06.jpg
+  TropicalFish07.jpg
+  TropicalFish08.jpg
+  TropicalFish09.jpg
+  TropicalFish10.jpg
+  TropicalFish11.jpg
+  TropicalFish12.jpg
+  TropicalFish13.jpg
+  TropicalFish14.jpg
+  TropicalFish15.jpg
+aq
+aquarium
+aquarium_session.html
+aquarium_session1.html
+aquarium.c
+aquarium.h
+aquarium.o
+aquarium2
+BUILD_README.md
+main.c
+main.o
+Makefile
+run_aquarium.sh
+structures.c
+structures.h
+structures.o
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="aquarium_session.html">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Aquarium Session</title>
+</head>
+<body>
+    
+    <window title="Aquarium Simulator" width="1400" height="900">
+        <metadata>
+            <total_fish_created>0</total_fish_created>
+            <total_fish_dead>0</total_fish_dead>
+            <total_eats>0</total_eats>
+            <next_fish_id>1</next_fish_id>
+            <next_group_id>1</next_group_id>
+            <paused>false</paused>
+        </metadata>
+        
+        <fish_container>
+
+            <div id="fish_1" class="fish_data">
+                <species>Tropical Fish</species>
+                <x>350.5</x>
+                <y>250.3</y>
+                <vx>1.2</vx>
+                <vy>0.5</vy>
+                <size>30</size>
+                <speed>2.5</speed>
+                <type>0</type>
+                <diet>2</diet>
+                <gender>0</gender>
+                <health>95.0</health>
+                <hunger>25.0</hunger>
+                <energy>80.0</energy>
+                <age>12.5</age>
+                <image_facing>0</image_facing>
+                <image_path></image_path>
+                <group_id>-1</group_id>
+                <is_leader>false</is_leader>
+            </div>
+        </fish_container>
+        
+        <group_container>
+            <div id="group_1" class="group_data">
+                <group_name>School</group_name>
+                <leader_id>1</leader_id>
+                <members>1,2,3,4</members>
+            </div>
+        </group_container>
+        
+        <main_container>
+            <vbox spacing="0">
+                <menu_bar>
+                    <menu_button label="File">
+                        <menu orientation="vertical">
+                            <menu_item label="Save Session">
+                                <menu_item label="Load Session">
+                            </menu>
+                        </menu>
+                    </menu_button>
+                </menu_bar>
+                <hbox spacing="0" homogeneous="false">
+                    <vbox spacing="10" bgcolor="#2c3e50" margin="10">
+                        <button label="➕ Add Fish" bgcolor="#27ae60"/>
+                        <button label="🗑 Delete Selected" bgcolor="#e74c3c"/>
+                        <button label="👥 Create Group" bgcolor="#9b59b6"/>
+                        <button label="➕ Add to Group" bgcolor="#3498db"/>
+                        <button label="❌ Delete Group" bgcolor="#e67e22"/>
+                        <button label="💾 Save Session" bgcolor="#16a085"/>
+                        <button label="📂 Load Session" bgcolor="#16a085"/>
+                    </vbox>
+                    <vbox spacing="10" margin="10">
+                        <label text="Aquarium View" color="#ecf0f1" font="Sans 14 bold"/>
+                        <label id="stats_label" text="🐟 Fish: 0 | Groups: 0" color="#bdc3c7"/>
+                        <label id="selected_label" text="Click on fish to select" color="#bdc3c7"/>
+                    </vbox>
+                </hbox>
+            </vbox>
+        </main_container>
+    </window>
+</body>
+</html>
+</file>
+
+<file path="aquarium_session1.html">
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Aquarium Session</title></head>
+<body>
+<window title="Aquarium Simulator" width="1820" height="814">
+    <metadata>
+        <total_fish_created>1</total_fish_created>
+        <total_fish_dead>0</total_fish_dead>
+        <total_eats>0</total_eats>
+        <next_fish_id>2</next_fish_id>
+        <next_group_id>1</next_group_id>
+        <paused>false</paused>
+    </metadata>
+    <fish_container>
+        <div id="fish_1">
+            <species>Tropical Fish</species>
+            <x>689.77</x>
+            <y>-36.44</y>
+            <vx>2.13</vx>
+            <vy>0.83</vy>
+            <size>60</size>
+            <speed>2.50</speed>
+            <type>0</type>
+            <diet>2</diet>
+            <gender>0</gender>
+            <health>100.0</health>
+            <hunger>22.9</hunger>
+            <energy>78.5</energy>
+            <age>2.9</age>
+            <image_facing>1</image_facing>
+            <image_path>/home/alan/shark-removebg-preview.png</image_path>
+            <group_id>-1</group_id>
+            <is_leader>false</is_leader>
+        </div>
+    </fish_container>
+    <group_container>
+    </group_container>
+</window>
+</body>
+</html>
+</file>
+
+<file path="aquarium.c">
+// aquarium.c - Complete with working image selection and icons (NO JSON)
+#include "aquarium.h"
+
+Aquarium *g_aquarium = NULL;
+
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
+
+// Cairo helper functions (declared in structures.c)
+void cairo_round_rectangle(cairo_t *cr, double x, double y, double w, double h, double r);
+void cairo_ellipse(cairo_t *cr, double x, double y, double rx, double ry);
+
+double get_current_time(void)
+{
+    return g_get_real_time() / 1000000.0;
+}
+
+int count_alive_fish(void)
+{
+    int count = 0;
+    Fish *current = g_aquarium->fish_list;
+    while (current)
+    {
+        if (current->is_alive)
+            count++;
+        current = current->next;
+    }
+    return count;
+}
+
+// Calculate wrap-aware distance between two fish
+float wrap_distance(Fish *a, Fish *b)
+{
+    float dx = a->x - b->x;
+    float dy = a->y - b->y;
+
+    if (dx > g_aquarium->width / 2)
+    {
+        dx = dx - g_aquarium->width;
+    }
+    else if (dx < -g_aquarium->width / 2)
+    {
+        dx = dx + g_aquarium->width;
+    }
+
+    if (dy > g_aquarium->height / 2)
+    {
+        dy = dy - g_aquarium->height;
+    }
+    else if (dy < -g_aquarium->height / 2)
+    {
+        dy = dy + g_aquarium->height;
+    }
+
+    return sqrt(dx * dx + dy * dy);
+}
+
+// Find nearest predator considering wrap-around
+Fish *find_nearest_predator(Fish *prey)
+{
+    Fish *nearest = NULL;
+    float nearest_dist = 200;
+
+    Fish *current = g_aquarium->fish_list;
+    while (current)
+    {
+        if (current->is_alive && current->type == TYPE_PREDATOR && current != prey)
+        {
+            float dist = wrap_distance(prey, current);
+            if (dist < nearest_dist)
+            {
+                nearest_dist = dist;
+                nearest = current;
+            }
+        }
+        current = current->next;
+    }
+    return nearest;
+}
+
+void show_message(const char *msg)
+{
+    GtkWidget *dialog = gtk_message_dialog_new(NULL, GTK_DIALOG_MODAL,
+                                               GTK_MESSAGE_INFO, GTK_BUTTONS_OK, "%s", msg);
+    gtk_dialog_run(GTK_DIALOG(dialog));
+    gtk_widget_destroy(dialog);
+}
+
+// ============================================================================
+// FISH MANAGEMENT
+// ============================================================================
+
+void load_fish_image(Fish *fish, const char *image_path)
+{
+    GdkPixbuf *original = NULL;
+
+    if (image_path && g_file_test(image_path, G_FILE_TEST_EXISTS))
+    {
+        GError *error = NULL;
+        original = gdk_pixbuf_new_from_file(image_path, &error);
+        if (error)
+        {
+            g_printerr("Error loading image: %s\n", error->message);
+            g_error_free(error);
+            original = NULL;
+        }
+    }
+
+    if (!original)
+    {
+        int size = (int)fish->size;
+        original = gdk_pixbuf_new(GDK_COLORSPACE_RGB, TRUE, 8, size, size);
+
+        guint32 color;
+        if (fish->type == TYPE_PREDATOR)
+        {
+            color = 0xFF4444FF;
+        }
+        else if (fish->diet == DIET_HERBIVORE)
+        {
+            color = 0x44FF44FF;
+        }
+        else if (fish->diet == DIET_CARNIVORE)
+        {
+            color = 0xFF8844FF;
+        }
+        else
+        {
+            color = 0x4488FFFF;
+        }
+        gdk_pixbuf_fill(original, color);
+
+        cairo_surface_t *surface = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, size, size);
+        cairo_t *cr = cairo_create(surface);
+        cairo_set_source_rgb(cr, 1, 1, 1);
+        cairo_arc(cr, size * 0.7, size * 0.35, size * 0.07, 0, 2 * M_PI);
+        cairo_fill(cr);
+        cairo_set_source_rgb(cr, 0, 0, 0);
+        cairo_arc(cr, size * 0.72, size * 0.33, size * 0.04, 0, 2 * M_PI);
+        cairo_fill(cr);
+        cairo_destroy(cr);
+
+        GdkPixbuf *eye = gdk_pixbuf_get_from_surface(surface, 0, 0, size, size);
+        gdk_pixbuf_composite(eye, original, 0, 0, size, size, 0, 0, 1, 1, GDK_INTERP_BILINEAR, 255);
+        g_object_unref(eye);
+        cairo_surface_destroy(surface);
+    }
+
+    int target_w = (int)fish->size;
+    int target_h = (int)(fish->size * 0.6);
+    GdkPixbuf *scaled = gdk_pixbuf_scale_simple(original, target_w, target_h, GDK_INTERP_BILINEAR);
+
+    if (fish->image_left)
+        g_object_unref(fish->image_left);
+    if (fish->image_right)
+        g_object_unref(fish->image_right);
+
+    fish->image_right = scaled;
+    fish->image_left = gdk_pixbuf_flip(scaled, TRUE);
+    g_object_ref(fish->image_left);
+
+    g_object_unref(original);
+}
+
+Fish *create_fish(const char *species, const char *image_path, float x, float y,
+                  float size, float speed, FishType type, DietType diet,
+                  Gender gender, FishDirection image_facing)
+{
+    Fish *fish = malloc(sizeof(Fish));
+    memset(fish, 0, sizeof(Fish));
+
+    fish->id = g_aquarium->next_fish_id++;
+    fish->species = g_strdup(species);
+    fish->image_path = image_path ? g_strdup(image_path) : NULL;
+    fish->x = x;
+    fish->y = y;
+    fish->size = size;
+    fish->speed = speed;
+    fish->type = type;
+    fish->diet = diet;
+    fish->gender = gender;
+    fish->image_facing = image_facing;
+    fish->direction = image_facing;
+    fish->is_alive = 1;
+    fish->health = 100.0;
+    fish->hunger = 20.0;
+    fish->energy = 80.0;
+    fish->age = 0;
+    fish->status = STATUS_ALIVE;
+    fish->group = NULL;
+    fish->is_leader = 0;
+    fish->leader_order = -1;
+    fish->current_goal = GOAL_IDLE;
+
+    if (image_facing == DIRECTION_RIGHT)
+    {
+        fish->vx = speed * 0.8;
+    }
+    else
+    {
+        fish->vx = -speed * 0.8;
+    }
+    fish->vy = ((rand() % 100) - 50) / 50.0 * speed * 0.5;
+    fish->target_vx = fish->vx;
+    fish->target_vy = fish->vy;
+
+    load_fish_image(fish, image_path);
+
+    g_aquarium->total_fish_created++;
+    return fish;
+}
+
+void add_fish(Fish *fish)
+{
+    fish->next = g_aquarium->fish_list;
+    if (g_aquarium->fish_list)
+    {
+        g_aquarium->fish_list->prev = fish;
+    }
+    g_aquarium->fish_list = fish;
+    update_ui_info();
+}
+
+void remove_fish(Fish *fish)
+{
+    if (!fish->is_alive)
+        return;
+
+    if (fish->group)
+    {
+        remove_fish_from_group(fish);
+    }
+
+    if (fish->prev)
+    {
+        fish->prev->next = fish->next;
+    }
+    else
+    {
+        g_aquarium->fish_list = fish->next;
+    }
+    if (fish->next)
+    {
+        fish->next->prev = fish->prev;
+    }
+
+    fish->is_alive = 0;
+    g_aquarium->total_fish_dead++;
+    update_ui_info();
+
+    if (g_aquarium->selected_fish == fish)
+    {
+        g_aquarium->selected_fish = NULL;
+    }
+}
+
+// ============================================================================
+// GROUP MANAGEMENT
+// ============================================================================
+
+Group *create_group(const char *name, Fish *leader)
+{
+    Group *group = malloc(sizeof(Group));
+    memset(group, 0, sizeof(Group));
+
+    group->id = g_aquarium->next_group_id++;
+    group->name = g_strdup(name);
+    group->leader = leader;
+    group->members_head = leader;
+    group->members_tail = leader;
+    group->member_count = 1;
+    group->center_x = leader->x;
+    group->center_y = leader->y;
+    group->next = NULL;
+
+    leader->group = group;
+    leader->is_leader = 1;
+    leader->leader_order = 0;
+
+    group->next = g_aquarium->group_list;
+    g_aquarium->group_list = group;
+
+    update_ui_info();
+    return group;
+}
+
+void add_fish_to_group(Group *group, Fish *fish)
+{
+    if (!group || !fish)
+        return;
+
+    if (fish->group)
+    {
+        remove_fish_from_group(fish);
+    }
+
+    if (group->members_tail)
+    {
+        group->members_tail->next = fish;
+        fish->prev = group->members_tail;
+    }
+    else
+    {
+        group->members_head = fish;
+        fish->prev = NULL;
+    }
+    group->members_tail = fish;
+    fish->next = NULL;
+    fish->group = group;
+    fish->is_leader = 0;
+    fish->leader_order = group->member_count;
+    group->member_count++;
+
+    update_group_formation(group);
+    update_ui_info();
+}
+
+void remove_fish_from_group(Fish *fish)
+{
+    if (!fish || !fish->group)
+        return;
+
+    Group *group = fish->group;
+
+    if (fish->is_leader && group->member_count > 1)
+    {
+        promote_next_leader(group);
+    }
+
+    if (fish->prev)
+    {
+        fish->prev->next = fish->next;
+    }
+    else
+    {
+        group->members_head = fish->next;
+    }
+    if (fish->next)
+    {
+        fish->next->prev = fish->prev;
+    }
+    else
+    {
+        group->members_tail = fish->prev;
+    }
+
+    group->member_count--;
+    fish->group = NULL;
+    fish->is_leader = 0;
+    fish->leader_order = -1;
+    fish->prev = NULL;
+    fish->next = NULL;
+
+    Fish *current = group->members_head;
+    int order = 0;
+    while (current)
+    {
+        current->leader_order = order++;
+        current = current->next;
+    }
+
+    if (group->member_count == 0)
+    {
+        delete_group(group);
+    }
+    else
+    {
+        update_group_formation(group);
+    }
+
+    update_ui_info();
+}
+
+void delete_group(Group *group)
+{
+    if (!group)
+        return;
+
+    Fish *current = group->members_head;
+    while (current)
+    {
+        Fish *next = current->next;
+        current->group = NULL;
+        current->is_leader = 0;
+        current->leader_order = -1;
+        current = next;
+    }
+
+    Group *prev = NULL;
+    Group *curr = g_aquarium->group_list;
+    while (curr)
+    {
+        if (curr == group)
+        {
+            if (prev)
+            {
+                prev->next = curr->next;
+            }
+            else
+            {
+                g_aquarium->group_list = curr->next;
+            }
+            g_free(group->name);
+            free(group);
+            break;
+        }
+        prev = curr;
+        curr = curr->next;
+    }
+
+    update_ui_info();
+}
+
+void promote_next_leader(Group *group)
+{
+    if (!group || group->member_count <= 1)
+        return;
+
+    Fish *new_leader = group->members_head;
+    if (!new_leader)
+        return;
+
+    group->leader = new_leader;
+    new_leader->is_leader = 1;
+    new_leader->leader_order = 0;
+
+    Fish *current = new_leader->next;
+    int order = 1;
+    while (current)
+    {
+        current->leader_order = order++;
+        current = current->next;
+    }
+
+    update_group_formation(group);
+}
+
+void update_group_formation(Group *group)
+{
+    if (!group || !group->leader)
+        return;
+
+    float sum_x = 0, sum_y = 0;
+    Fish *current = group->members_head;
+    while (current)
+    {
+        sum_x += current->x;
+        sum_y += current->y;
+        current = current->next;
+    }
+    group->center_x = sum_x / group->member_count;
+    group->center_y = sum_y / group->member_count;
+
+    current = group->members_head;
+    if (current)
+        current = current->next;
+
+    int index = 1;
+    while (current)
+    {
+        float angle = (index * 0.7) * (current->leader_order % 2 == 0 ? 1 : -1);
+        float offset_x = sin(angle) * 40;
+        float offset_y = cos(angle) * 30 - 15;
+
+        float target_x = group->leader->x + offset_x;
+        float target_y = group->leader->y + offset_y;
+
+        float dx = target_x - current->x;
+        float dy = target_y - current->y;
+
+        if (fabs(dx) > g_aquarium->width / 2)
+        {
+            if (dx > 0)
+                dx -= g_aquarium->width;
+            else
+                dx += g_aquarium->width;
+        }
+        if (fabs(dy) > g_aquarium->height / 2)
+        {
+            if (dy > 0)
+                dy -= g_aquarium->height;
+            else
+                dy += g_aquarium->height;
+        }
+
+        float dist = sqrt(dx * dx + dy * dy);
+        if (dist > 5)
+        {
+            current->target_vx = dx * 0.1;
+            current->target_vy = dy * 0.1;
+        }
+
+        index++;
+        current = current->next;
+    }
+}
+
+// ============================================================================
+// HEALTH AND MOVEMENT
+// ============================================================================
+
+void update_fish_health(Fish *fish)
+{
+    if (!fish->is_alive)
+        return;
+
+    fish->age += 0.01;
+    fish->hunger += 0.01;
+    fish->energy -= 0.005;
+
+    if (fish->hunger > 80)
+    {
+        fish->health -= 0.5;
+    }
+    else if (fish->energy < 20)
+    {
+        fish->health -= 0.3;
+    }
+    else
+    {
+        fish->health += 0.1;
+        if (fish->health > 100)
+            fish->health = 100;
+    }
+
+    if (fish->health <= 0 || fish->hunger >= 100 || fish->age > 100)
+    {
+        fish_die(fish);
+    }
+}
+
+void fish_die(Fish *fish)
+{
+    if (!fish->is_alive)
+        return;
+
+    fish->is_alive = 0;
+
+    if (fish->group)
+    {
+        remove_fish_from_group(fish);
+    }
+
+    g_aquarium->total_fish_dead++;
+
+    if (g_aquarium->selected_fish == fish)
+    {
+        g_aquarium->selected_fish = NULL;
+    }
+}
+
+// Find nearest prey considering wrap-around
+Fish *find_nearest_prey(Fish *predator)
+{
+    Fish *nearest = NULL;
+    float nearest_dist = 200;
+
+    Fish *current = g_aquarium->fish_list;
+    while (current)
+    {
+        if (current->is_alive && current->type == TYPE_PREY && current != predator)
+        {
+            float dist = wrap_distance(predator, current);
+            if (dist < nearest_dist && current->size < predator->size)
+            {
+                nearest_dist = dist;
+                nearest = current;
+            }
+        }
+        current = current->next;
+    }
+    return nearest;
+}
+
+void apply_boundary_wrap(Fish *fish)
+{
+    int margin = (int)fish->size;
+
+    if (fish->x + margin < 0)
+    {
+        fish->x = g_aquarium->width + margin;
+    }
+    else if (fish->x - margin > g_aquarium->width)
+    {
+        fish->x = -margin;
+    }
+
+    if (fish->y + margin < 0)
+    {
+        fish->y = g_aquarium->height + margin;
+    }
+    else if (fish->y - margin > g_aquarium->height)
+    {
+        fish->y = -margin;
+    }
+}
+
+void update_fish_movement(Fish *fish, float dt)
+{
+    if (!fish->is_alive)
+        return;
+
+    update_fish_health(fish);
+
+    if (g_aquarium->paused)
+        return;
+
+    if (fish->group && !fish->is_leader && fish->group->leader)
+    {
+        float dx = fish->group->leader->x - fish->x;
+        float dy = fish->group->leader->y - fish->y;
+
+        if (fabs(dx) > g_aquarium->width / 2)
+        {
+            dx = (dx > 0) ? dx - g_aquarium->width : dx + g_aquarium->width;
+        }
+        if (fabs(dy) > g_aquarium->height / 2)
+        {
+            dy = (dy > 0) ? dy - g_aquarium->height : dy + g_aquarium->height;
+        }
+
+        float dist = sqrt(dx * dx + dy * dy);
+        if (dist > 40)
+        {
+            fish->target_vx += dx * 0.02;
+            fish->target_vy += dy * 0.02;
+        }
+    }
+
+    static double last_change = 0;
+    double now = get_current_time();
+
+    if (now - last_change > 2.0)
+    {
+        float angle = ((rand() % 60) - 30) * M_PI / 180.0;
+        float speed = fish->speed;
+        fish->target_vx = cos(angle) * speed;
+        fish->target_vy = sin(angle) * speed * 0.5;
+
+        if (fish->image_facing == DIRECTION_RIGHT && fish->target_vx < 0)
+        {
+            fish->target_vx = -fish->target_vx;
+        }
+        else if (fish->image_facing == DIRECTION_LEFT && fish->target_vx > 0)
+        {
+            fish->target_vx = -fish->target_vx;
+        }
+
+        last_change = now;
+    }
+
+    if (fish->type == TYPE_PREDATOR && fish->hunger > 40)
+    {
+        Fish *prey = find_nearest_prey(fish);
+        if (prey)
+        {
+            float dx = prey->x - fish->x;
+            float dy = prey->y - fish->y;
+
+            if (fabs(dx) > g_aquarium->width / 2)
+            {
+                dx = (dx > 0) ? dx - g_aquarium->width : dx + g_aquarium->width;
+            }
+            if (fabs(dy) > g_aquarium->height / 2)
+            {
+                dy = (dy > 0) ? dy - g_aquarium->height : dy + g_aquarium->height;
+            }
+
+            float dist = sqrt(dx * dx + dy * dy);
+            if (dist > 10 && dist < 200)
+            {
+                fish->target_vx = (dx / dist) * fish->speed * 1.2;
+                fish->target_vy = (dy / dist) * fish->speed * 0.8;
+            }
+        }
+    }
+    else if (fish->type == TYPE_PREY)
+    {
+        Fish *predator = find_nearest_predator(fish);
+        if (predator)
+        {
+            float dx = fish->x - predator->x;
+            float dy = fish->y - predator->y;
+
+            if (fabs(dx) > g_aquarium->width / 2)
+            {
+                dx = (dx > 0) ? dx - g_aquarium->width : dx + g_aquarium->width;
+            }
+            if (fabs(dy) > g_aquarium->height / 2)
+            {
+                dy = (dy > 0) ? dy - g_aquarium->height : dy + g_aquarium->height;
+            }
+
+            float dist = sqrt(dx * dx + dy * dy);
+            if (dist < 100 && dist > 5)
+            {
+                fish->target_vx = (dx / dist) * fish->speed * 1.5;
+                fish->target_vy = (dy / dist) * fish->speed * 1.2;
+            }
+        }
+    }
+
+    fish->vx = fish->vx * 0.92 + fish->target_vx * 0.08;
+    fish->vy = fish->vy * 0.95 + fish->target_vy * 0.05;
+
+    float max_speed = fish->speed;
+    float current_speed = sqrt(fish->vx * fish->vx + fish->vy * fish->vy);
+    if (current_speed > max_speed)
+    {
+        fish->vx = fish->vx / current_speed * max_speed;
+        fish->vy = fish->vy / current_speed * max_speed;
+    }
+
+    float min_speed = fish->speed * 0.3;
+    if (fish->image_facing == DIRECTION_RIGHT && fish->vx < min_speed)
+    {
+        fish->vx = min_speed;
+    }
+    else if (fish->image_facing == DIRECTION_LEFT && fish->vx > -min_speed)
+    {
+        fish->vx = -min_speed;
+    }
+
+    fish->x += fish->vx * dt * 60;
+    fish->y += fish->vy * dt * 60;
+
+    apply_boundary_wrap(fish);
+
+    fish->direction = fish->image_facing;
+
+    fish->target_vx = fish->vx;
+    fish->target_vy = fish->vy;
+}
+
+void check_predation(void)
+{
+    Fish *current = g_aquarium->fish_list;
+    while (current)
+    {
+        Fish *next = current->next;
+        if (current->is_alive && current->type == TYPE_PREDATOR && current->hunger > 30)
+        {
+            Fish *prey = find_nearest_prey(current);
+            if (prey)
+            {
+                float dist = wrap_distance(current, prey);
+
+                if (dist < (current->size + prey->size) / 2)
+                {
+                    current->hunger -= 30;
+                    if (current->hunger < 0)
+                        current->hunger = 0;
+                    g_aquarium->total_eats++;
+                    remove_fish(prey);
+                }
+            }
+        }
+        current = next;
+    }
+}
+
+int is_fish_visible(Fish *fish)
+{
+    int margin = (int)fish->size;
+    return (fish->x + margin > 0 && fish->x - margin < g_aquarium->width &&
+            fish->y + margin > 0 && fish->y - margin < g_aquarium->height);
+}
+
+// ============================================================================
+// SIMULATION LOOP
+// ============================================================================
+
+void update_simulation(void)
+{
+    static long long last_time = 0;
+    long long current_time = g_get_real_time();
+
+    float dt = (current_time - last_time) / 1000000.0;
+    if (dt > 0.05)
+        dt = 0.033;
+    if (dt <= 0)
+        dt = 0.016;
+
+    last_time = current_time;
+
+    Fish *current = g_aquarium->fish_list;
+    while (current)
+    {
+        Fish *next = current->next;
+        if (current->is_alive)
+        {
+            update_fish_movement(current, dt);
+        }
+        current = next;
+    }
+
+    check_predation();
+
+    gtk_widget_queue_draw(g_aquarium->drawing_area);
+}
+
+gboolean animation_tick(gpointer data)
+{
+    (void)data;
+    if (g_aquarium && g_aquarium->is_running)
+    {
+        update_simulation();
+    }
+    return G_SOURCE_CONTINUE;
+}
+
+// ============================================================================
+// DRAWING
+// ============================================================================
+
+void draw_water_background(cairo_t *cr)
+{
+    int w = g_aquarium->width;
+    int h = g_aquarium->height;
+
+    cairo_pattern_t *pattern = cairo_pattern_create_linear(0, 0, 0, h);
+    cairo_pattern_add_color_stop_rgb(pattern, 0, 0.05, 0.15, 0.35);
+    cairo_pattern_add_color_stop_rgb(pattern, 0.5, 0.03, 0.10, 0.25);
+    cairo_pattern_add_color_stop_rgb(pattern, 1, 0.01, 0.05, 0.15);
+
+    cairo_rectangle(cr, 0, 0, w, h);
+    cairo_set_source(cr, pattern);
+    cairo_fill(cr);
+    cairo_pattern_destroy(pattern);
+
+    cairo_set_source_rgb(cr, 0.76, 0.70, 0.50);
+    cairo_rectangle(cr, 0, h - 50, w, 50);
+    cairo_fill(cr);
+}
+
+void draw_fish(cairo_t *cr, Fish *fish)
+{
+    if (!fish->is_alive)
+        return;
+
+    if (!is_fish_visible(fish))
+        return;
+
+    GdkPixbuf *current_image = (fish->direction == DIRECTION_RIGHT) ? fish->image_right : fish->image_left;
+
+    if (current_image)
+    {
+        int img_w = gdk_pixbuf_get_width(current_image);
+        int img_h = gdk_pixbuf_get_height(current_image);
+        float draw_x = fish->x - img_w / 2;
+        float draw_y = fish->y - img_h / 2;
+
+        if (g_aquarium->selected_fish == fish)
+        {
+            cairo_set_source_rgba(cr, 1, 1, 0, 0.3);
+            cairo_arc(cr, fish->x, fish->y, fish->size, 0, 2 * M_PI);
+            cairo_fill(cr);
+        }
+
+        gdk_cairo_set_source_pixbuf(cr, current_image, draw_x, draw_y);
+        cairo_paint(cr);
+
+        if (fish->is_leader && fish->group && fish->group->member_count > 1)
+        {
+            cairo_set_source_rgb(cr, 1, 0.85, 0);
+            cairo_move_to(cr, fish->x - 8, fish->y - img_h / 2 - 4);
+            cairo_line_to(cr, fish->x, fish->y - img_h / 2 - 14);
+            cairo_line_to(cr, fish->x + 8, fish->y - img_h / 2 - 4);
+            cairo_fill(cr);
+        }
+
+        float bar_width = fish->size;
+        float bar_height = 4;
+        float bar_x = fish->x - bar_width / 2;
+        float bar_y = fish->y - fish->size / 2 - 8;
+
+        cairo_set_source_rgba(cr, 0, 0, 0, 0.5);
+        cairo_rectangle(cr, bar_x, bar_y, bar_width, bar_height);
+        cairo_fill(cr);
+
+        if (fish->hunger > 70)
+        {
+            cairo_set_source_rgb(cr, 1, 0.6, 0);
+        }
+        else if (fish->health < 40)
+        {
+            cairo_set_source_rgb(cr, 0.8, 0.2, 0.2);
+        }
+        else
+        {
+            cairo_set_source_rgb(cr, 0.2, 0.8, 0.2);
+        }
+        cairo_rectangle(cr, bar_x, bar_y, bar_width * (fish->health / 100), bar_height);
+        cairo_fill(cr);
+
+        if (fish->gender == GENDER_MALE)
+        {
+            cairo_set_source_rgb(cr, 0.3, 0.5, 1);
+        }
+        else
+        {
+            cairo_set_source_rgb(cr, 1, 0.4, 0.7);
+        }
+        cairo_arc(cr, fish->x - img_w / 2 - 3, fish->y - img_h / 2 + 5, 2, 0, 2 * M_PI);
+        cairo_fill(cr);
+    }
+}
+
+void draw_stats_panel(cairo_t *cr)
+{
+    cairo_set_source_rgba(cr, 0, 0, 0, 0.75);
+    cairo_rectangle(cr, 10, 10, 260, 140);
+    cairo_fill(cr);
+
+    cairo_set_source_rgb(cr, 0.3, 0.8, 1);
+    cairo_set_font_size(cr, 12);
+    cairo_move_to(cr, 20, 30);
+    cairo_show_text(cr, "🐠 AQUARIUM STATS");
+
+    cairo_set_source_rgba(cr, 1, 1, 1, 0.8);
+    cairo_set_font_size(cr, 10);
+
+    char line[128];
+    int y = 50;
+
+    cairo_move_to(cr, 20, y);
+    snprintf(line, sizeof(line), "Fish: %d | Groups: %d",
+             count_alive_fish(),
+             g_aquarium->group_list ? 1 : 0);
+    cairo_show_text(cr, line);
+
+    y += 20;
+    cairo_move_to(cr, 20, y);
+    snprintf(line, sizeof(line), "Created: %d | Dead: %d | Eats: %d",
+             g_aquarium->total_fish_created, g_aquarium->total_fish_dead, g_aquarium->total_eats);
+    cairo_show_text(cr, line);
+
+    y += 20;
+    cairo_move_to(cr, 20, y);
+    snprintf(line, sizeof(line), "Status: %s", g_aquarium->paused ? "PAUSED" : "RUNNING");
+    cairo_show_text(cr, line);
+
+    if (g_aquarium->selected_fish)
+    {
+        y += 25;
+        cairo_set_source_rgb(cr, 0.3, 0.8, 1);
+        cairo_move_to(cr, 20, y);
+        snprintf(line, sizeof(line), "Selected: %s (ID:%d)",
+                 g_aquarium->selected_fish->species,
+                 g_aquarium->selected_fish->id);
+        cairo_show_text(cr, line);
+
+        y += 18;
+        cairo_set_source_rgba(cr, 1, 1, 1, 0.8);
+        cairo_move_to(cr, 20, y);
+        snprintf(line, sizeof(line), "Health: %.0f%% | %s",
+                 g_aquarium->selected_fish->health,
+                 g_aquarium->selected_fish->is_leader ? "LEADER" : "Follower");
+        cairo_show_text(cr, line);
+    }
+}
+
+void draw_grid(cairo_t *cr)
+{
+    if (!g_aquarium->show_grid)
+        return;
+
+    cairo_set_source_rgba(cr, 1, 1, 1, 0.1);
+    cairo_set_line_width(cr, 1);
+
+    for (int x = 0; x < g_aquarium->width; x += 50)
+    {
+        cairo_move_to(cr, x, 0);
+        cairo_line_to(cr, x, g_aquarium->height);
+        cairo_stroke(cr);
+    }
+
+    for (int y = 0; y < g_aquarium->height; y += 50)
+    {
+        cairo_move_to(cr, 0, y);
+        cairo_line_to(cr, g_aquarium->width, y);
+        cairo_stroke(cr);
+    }
+}
+
+void draw_help_overlay(cairo_t *cr)
+{
+    if (!g_aquarium->show_help)
+        return;
+
+    cairo_set_source_rgba(cr, 0, 0, 0, 0.85);
+    cairo_rectangle(cr, 0, 0, g_aquarium->width, g_aquarium->height);
+    cairo_fill(cr);
+
+    cairo_set_source_rgb(cr, 1, 1, 1);
+    cairo_set_font_size(cr, 12);
+
+    const char *help[] = {
+        "═══════════════════════════════════════════════════════",
+        "                 AQUARIUM CONTROLS",
+        "═══════════════════════════════════════════════════════",
+        "",
+        "FISH MANAGEMENT:",
+        "   • Click any fish to select it",
+        "   • 'Add Fish' - Create new fish with custom image",
+        "   • 'Delete Selected' - Remove selected fish",
+        "   • 'Clear All' - Remove all fish and groups",
+        "",
+        "GROUP MANAGEMENT:",
+        "   • 'Create Group' - Form new group (selected fish = leader)",
+        "   • 'Add to Group' - Add selected fish to a group",
+        "   • 'Remove from Group' - Remove fish from its group",
+        "   • 'Delete Group' - Disband entire group",
+        "   • 'View Group' - See group members",
+        "",
+        "KEYBOARD SHORTCUTS:",
+        "   • SPACE - Pause/Resume",
+        "   • G - Toggle grid",
+        "   • H - Hide/Show help",
+        "   • C - Clear all fish",
+        "   • ESC - Clear selection",
+        "",
+        "SAVE/LOAD:",
+        "   • 'Save HTML' - Save aquarium session as HTML file",
+        "   • 'Load HTML' - Load aquarium session from HTML file",
+        "",
+        "═══════════════════════════════════════════════════════",
+        NULL};
+
+    int y = 50;
+    for (int i = 0; help[i] != NULL; i++)
+    {
+        cairo_move_to(cr, 50, y);
+        cairo_show_text(cr, help[i]);
+        y += 22;
+    }
+}
+
+gboolean draw_callback(GtkWidget *widget, cairo_t *cr, gpointer data)
+{
+    (void)data;
+    if (!g_aquarium)
+        return FALSE;
+
+    GtkAllocation alloc;
+    gtk_widget_get_allocation(widget, &alloc);
+    g_aquarium->width = alloc.width;
+    g_aquarium->height = alloc.height;
+
+    cairo_set_antialias(cr, CAIRO_ANTIALIAS_GOOD);
+
+    draw_water_background(cr);
+    draw_grid(cr);
+
+    Fish *current = g_aquarium->fish_list;
+    while (current)
+    {
+        if (current->is_alive)
+        {
+            draw_fish(cr, current);
+        }
+        current = current->next;
+    }
+
+    draw_stats_panel(cr);
+    draw_help_overlay(cr);
+
+    return FALSE;
+}
+
+// ============================================================================
+// UI CALLBACKS
+// ============================================================================
+
+void update_ui_info(void)
+{
+    char info[512];
+    snprintf(info, sizeof(info),
+             "🐟 Fish: %d alive | 👥 Groups: %d | 🎂 Born: %d | 💀 Dead: %d | 🍽️ Eats: %d",
+             count_alive_fish(),
+             g_aquarium->group_list ? 1 : 0,
+             g_aquarium->total_fish_created,
+             g_aquarium->total_fish_dead,
+             g_aquarium->total_eats);
+
+    gtk_label_set_text(GTK_LABEL(g_aquarium->info_label), info);
+}
+
+void on_fish_selected(Fish *fish)
+{
+    g_aquarium->selected_fish = fish;
+    update_ui_info();
+    gtk_widget_queue_draw(g_aquarium->drawing_area);
+}
+
+// ============================================================================
+// FISH DIALOG WITH IMAGE PICKER
+// ============================================================================
+
+GtkWidget *create_fish_dialog(void)
+{
+    GtkWidget *dialog = gtk_dialog_new_with_buttons("Add New Fish",
+                                                    NULL, GTK_DIALOG_MODAL,
+                                                    "_Cancel", GTK_RESPONSE_CANCEL,
+                                                    "_Add", GTK_RESPONSE_ACCEPT, NULL);
+
+    gtk_window_set_default_size(GTK_WINDOW(dialog), 450, 600);
+    gtk_window_set_resizable(GTK_WINDOW(dialog), FALSE);
+
+    GtkWidget *grid = gtk_grid_new();
+    gtk_grid_set_row_spacing(GTK_GRID(grid), 10);
+    gtk_grid_set_column_spacing(GTK_GRID(grid), 10);
+    gtk_container_set_border_width(GTK_CONTAINER(grid), 20);
+
+    int row = 0;
+
+    GtkWidget *title = gtk_label_new(NULL);
+    gtk_label_set_markup(GTK_LABEL(title), "<span size='large' weight='bold'>🐟 Create New Fish</span>");
+    gtk_grid_attach(GTK_GRID(grid), title, 0, row++, 2, 1);
+
+    GtkWidget *species_label = gtk_label_new("Species Name:");
+    gtk_widget_set_halign(species_label, GTK_ALIGN_START);
+    GtkWidget *species_entry = gtk_entry_new();
+    gtk_entry_set_placeholder_text(GTK_ENTRY(species_entry), "e.g., Tropical Fish");
+    gtk_entry_set_text(GTK_ENTRY(species_entry), "Tropical Fish");
+    gtk_grid_attach(GTK_GRID(grid), species_label, 0, row, 1, 1);
+    gtk_grid_attach(GTK_GRID(grid), species_entry, 1, row, 1, 1);
+    row++;
+
+    GtkWidget *size_label = gtk_label_new("Size (20-60 pixels):");
+    gtk_widget_set_halign(size_label, GTK_ALIGN_START);
+    GtkWidget *size_spin = gtk_spin_button_new_with_range(20, 60, 5);
+    gtk_spin_button_set_value(GTK_SPIN_BUTTON(size_spin), 30);
+    gtk_grid_attach(GTK_GRID(grid), size_label, 0, row, 1, 1);
+    gtk_grid_attach(GTK_GRID(grid), size_spin, 1, row, 1, 1);
+    row++;
+
+    GtkWidget *speed_label = gtk_label_new("Speed (1-5):");
+    gtk_widget_set_halign(speed_label, GTK_ALIGN_START);
+    GtkWidget *speed_spin = gtk_spin_button_new_with_range(1, 5, 0.5);
+    gtk_spin_button_set_value(GTK_SPIN_BUTTON(speed_spin), 2.5);
+    gtk_grid_attach(GTK_GRID(grid), speed_label, 0, row, 1, 1);
+    gtk_grid_attach(GTK_GRID(grid), speed_spin, 1, row, 1, 1);
+    row++;
+
+    GtkWidget *type_label = gtk_label_new("Fish Type:");
+    gtk_widget_set_halign(type_label, GTK_ALIGN_START);
+    GtkWidget *type_combo = gtk_combo_box_text_new();
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(type_combo), "🐟 Prey");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(type_combo), "🦈 Predator");
+    gtk_combo_box_set_active(GTK_COMBO_BOX(type_combo), 0);
+    gtk_grid_attach(GTK_GRID(grid), type_label, 0, row, 1, 1);
+    gtk_grid_attach(GTK_GRID(grid), type_combo, 1, row, 1, 1);
+    row++;
+
+    GtkWidget *diet_label = gtk_label_new("Diet:");
+    gtk_widget_set_halign(diet_label, GTK_ALIGN_START);
+    GtkWidget *diet_combo = gtk_combo_box_text_new();
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(diet_combo), "🌿 Herbivore");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(diet_combo), "🥩 Carnivore");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(diet_combo), "🍽️ Omnivore");
+    gtk_combo_box_set_active(GTK_COMBO_BOX(diet_combo), 2);
+    gtk_grid_attach(GTK_GRID(grid), diet_label, 0, row, 1, 1);
+    gtk_grid_attach(GTK_GRID(grid), diet_combo, 1, row, 1, 1);
+    row++;
+
+    GtkWidget *gender_label = gtk_label_new("Gender:");
+    gtk_widget_set_halign(gender_label, GTK_ALIGN_START);
+    GtkWidget *gender_combo = gtk_combo_box_text_new();
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(gender_combo), "♂ Male");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(gender_combo), "♀ Female");
+    gtk_combo_box_set_active(GTK_COMBO_BOX(gender_combo), rand() % 2);
+    gtk_grid_attach(GTK_GRID(grid), gender_label, 0, row, 1, 1);
+    gtk_grid_attach(GTK_GRID(grid), gender_combo, 1, row, 1, 1);
+    row++;
+
+    GtkWidget *facing_label = gtk_label_new("Image Facing:");
+    gtk_widget_set_halign(facing_label, GTK_ALIGN_START);
+    GtkWidget *facing_combo = gtk_combo_box_text_new();
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(facing_combo), "→ Right");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(facing_combo), "← Left");
+    gtk_combo_box_set_active(GTK_COMBO_BOX(facing_combo), 0);
+    gtk_grid_attach(GTK_GRID(grid), facing_label, 0, row, 1, 1);
+    gtk_grid_attach(GTK_GRID(grid), facing_combo, 1, row, 1, 1);
+    row++;
+
+    GtkWidget *image_label = gtk_label_new("Custom Image (optional):");
+    gtk_widget_set_halign(image_label, GTK_ALIGN_START);
+    GtkWidget *image_button = gtk_file_chooser_button_new("Select PNG Image", GTK_FILE_CHOOSER_ACTION_OPEN);
+
+    GtkFileFilter *filter = gtk_file_filter_new();
+    gtk_file_filter_set_name(filter, "PNG Images");
+    gtk_file_filter_add_pattern(filter, "*.png");
+    gtk_file_filter_add_pattern(filter, "*.PNG");
+    gtk_file_chooser_add_filter(GTK_FILE_CHOOSER(image_button), filter);
+
+    gtk_grid_attach(GTK_GRID(grid), image_label, 0, row, 1, 1);
+    gtk_grid_attach(GTK_GRID(grid), image_button, 1, row, 1, 1);
+    row++;
+
+    GtkWidget *preview_label = gtk_label_new(NULL);
+    gtk_label_set_markup(GTK_LABEL(preview_label), "<span size='small' foreground='#7f8c8d'>💡 Tip: PNG images with transparency work best</span>");
+    gtk_grid_attach(GTK_GRID(grid), preview_label, 0, row, 2, 1);
+
+    gtk_container_add(GTK_CONTAINER(gtk_dialog_get_content_area(GTK_DIALOG(dialog))), grid);
+    gtk_widget_show_all(dialog);
+
+    g_object_set_data(G_OBJECT(dialog), "species", species_entry);
+    g_object_set_data(G_OBJECT(dialog), "size", size_spin);
+    g_object_set_data(G_OBJECT(dialog), "speed", speed_spin);
+    g_object_set_data(G_OBJECT(dialog), "type", type_combo);
+    g_object_set_data(G_OBJECT(dialog), "diet", diet_combo);
+    g_object_set_data(G_OBJECT(dialog), "gender", gender_combo);
+    g_object_set_data(G_OBJECT(dialog), "facing", facing_combo);
+    g_object_set_data(G_OBJECT(dialog), "image", image_button);
+
+    g_signal_connect(dialog, "response", G_CALLBACK(on_fish_dialog_response), NULL);
+
+    return dialog;
+}
+
+void on_fish_dialog_response(GtkDialog *dialog, gint response_id, gpointer data)
+{
+    (void)data;
+    if (response_id == GTK_RESPONSE_ACCEPT)
+    {
+        const char *species = gtk_entry_get_text(g_object_get_data(G_OBJECT(dialog), "species"));
+        float size = gtk_spin_button_get_value(g_object_get_data(G_OBJECT(dialog), "size"));
+        float speed = gtk_spin_button_get_value(g_object_get_data(G_OBJECT(dialog), "speed"));
+
+        int type_idx = gtk_combo_box_get_active(g_object_get_data(G_OBJECT(dialog), "type"));
+        FishType type = type_idx == 1 ? TYPE_PREDATOR : TYPE_PREY;
+
+        int diet_idx = gtk_combo_box_get_active(g_object_get_data(G_OBJECT(dialog), "diet"));
+        DietType diet = diet_idx == 0 ? DIET_HERBIVORE : (diet_idx == 1 ? DIET_CARNIVORE : DIET_OMNIVORE);
+
+        int gender_idx = gtk_combo_box_get_active(g_object_get_data(G_OBJECT(dialog), "gender"));
+        Gender gender = gender_idx == 0 ? GENDER_MALE : GENDER_FEMALE;
+
+        int facing_idx = gtk_combo_box_get_active(g_object_get_data(G_OBJECT(dialog), "facing"));
+        FishDirection facing = facing_idx == 0 ? DIRECTION_RIGHT : DIRECTION_LEFT;
+
+        char *image_path = gtk_file_chooser_get_filename(g_object_get_data(G_OBJECT(dialog), "image"));
+
+        float x = 100 + rand() % (g_aquarium->width - 200);
+        float y = 100 + rand() % (g_aquarium->height - 200);
+
+        Fish *new_fish = create_fish(species, image_path, x, y, size, speed, type, diet, gender, facing);
+        add_fish(new_fish);
+
+        char msg[256];
+        snprintf(msg, sizeof(msg), "✅ Added %s (ID: %d)%s",
+                 species, new_fish->id,
+                 image_path ? " with custom image" : "");
+        show_message(msg);
+
+        if (image_path)
+            g_free(image_path);
+
+        gtk_widget_queue_draw(g_aquarium->drawing_area);
+    }
+}
+
+// ============================================================================
+// GROUP DIALOG
+// ============================================================================
+
+GtkWidget *create_group_dialog(void)
+{
+    GtkWidget *dialog = gtk_dialog_new_with_buttons("Create Group",
+                                                    NULL, GTK_DIALOG_MODAL,
+                                                    "_Cancel", GTK_RESPONSE_CANCEL,
+                                                    "_Create", GTK_RESPONSE_ACCEPT, NULL);
+
+    GtkWidget *grid = gtk_grid_new();
+    gtk_grid_set_row_spacing(GTK_GRID(grid), 10);
+    gtk_grid_set_column_spacing(GTK_GRID(grid), 10);
+    gtk_container_set_border_width(GTK_CONTAINER(grid), 20);
+
+    GtkWidget *name_label = gtk_label_new("Group Name:");
+    GtkWidget *name_entry = gtk_entry_new();
+    gtk_entry_set_text(GTK_ENTRY(name_entry), "School");
+    gtk_grid_attach(GTK_GRID(grid), name_label, 0, 0, 1, 1);
+    gtk_grid_attach(GTK_GRID(grid), name_entry, 1, 0, 1, 1);
+
+    GtkWidget *info_label = gtk_label_new(NULL);
+    gtk_label_set_markup(GTK_LABEL(info_label), "<span size='small'>👑 Selected fish will become the group leader</span>");
+    gtk_grid_attach(GTK_GRID(grid), info_label, 0, 1, 2, 1);
+
+    gtk_container_add(GTK_CONTAINER(gtk_dialog_get_content_area(GTK_DIALOG(dialog))), grid);
+    gtk_widget_show_all(dialog);
+
+    g_object_set_data(G_OBJECT(dialog), "group_name", name_entry);
+
+    g_signal_connect(dialog, "response", G_CALLBACK(on_group_dialog_response), NULL);
+
+    return dialog;
+}
+
+void on_group_dialog_response(GtkDialog *dialog, gint response_id, gpointer data)
+{
+    (void)data;
+    if (response_id == GTK_RESPONSE_ACCEPT && g_aquarium->selected_fish)
+    {
+        const char *name = gtk_entry_get_text(g_object_get_data(G_OBJECT(dialog), "group_name"));
+        create_group(name, g_aquarium->selected_fish);
+        show_message("✅ Group created!");
+        update_ui_info();
+        gtk_widget_queue_draw(g_aquarium->drawing_area);
+    }
+}
+
+// ============================================================================
+// OTHER UI CALLBACKS
+// ============================================================================
+
+void on_add_fish_clicked(GtkWidget *widget, gpointer data)
+{
+    (void)widget;
+    (void)data;
+    GtkWidget *dialog = create_fish_dialog();
+    gtk_dialog_run(GTK_DIALOG(dialog));
+    gtk_widget_destroy(dialog);
+}
+
+void on_create_group_clicked(GtkWidget *widget, gpointer data)
+{
+    (void)widget;
+    (void)data;
+    if (!g_aquarium->selected_fish)
+    {
+        show_message("Please select a fish to be the group leader first!");
+        return;
+    }
+
+    if (g_aquarium->selected_fish->group)
+    {
+        show_message("This fish is already in a group! Remove it first.");
+        return;
+    }
+
+    GtkWidget *dialog = create_group_dialog();
+    gtk_dialog_run(GTK_DIALOG(dialog));
+    gtk_widget_destroy(dialog);
+}
+
+void on_add_to_group_clicked(GtkWidget *widget, gpointer data)
+{
+    (void)widget;
+    (void)data;
+    if (!g_aquarium->selected_fish)
+    {
+        show_message("Please select a fish first!");
+        return;
+    }
+
+    if (g_aquarium->selected_fish->group)
+    {
+        show_message("Fish is already in a group! Remove it first.");
+        return;
+    }
+
+    if (!g_aquarium->group_list)
+    {
+        show_message("No groups available! Create a group first.");
+        return;
+    }
+
+    GtkWidget *dialog = gtk_dialog_new_with_buttons("Add to Group",
+                                                    NULL, GTK_DIALOG_MODAL,
+                                                    "_Cancel", GTK_RESPONSE_CANCEL,
+                                                    "_Add", GTK_RESPONSE_ACCEPT, NULL);
+
+    GtkWidget *combo = gtk_combo_box_text_new();
+    Group *group = g_aquarium->group_list;
+    while (group)
+    {
+        char name[128];
+        snprintf(name, sizeof(name), "Group %d: %s (%d fish)", group->id, group->name, group->member_count);
+        gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo), name);
+        group = group->next;
+    }
+
+    gtk_container_add(GTK_CONTAINER(gtk_dialog_get_content_area(GTK_DIALOG(dialog))), combo);
+    gtk_widget_show_all(dialog);
+
+    if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT)
+    {
+        int index = gtk_combo_box_get_active(GTK_COMBO_BOX(combo));
+        if (index >= 0)
+        {
+            group = g_aquarium->group_list;
+            for (int i = 0; i < index && group; i++)
+                group = group->next;
+            if (group)
+            {
+                add_fish_to_group(group, g_aquarium->selected_fish);
+                show_message("✅ Fish added to group!");
+            }
+        }
+    }
+    gtk_widget_destroy(dialog);
+}
+
+void on_remove_from_group_clicked(GtkWidget *widget, gpointer data)
+{
+    (void)widget;
+    (void)data;
+    if (!g_aquarium->selected_fish)
+    {
+        show_message("Please select a fish first!");
+        return;
+    }
+
+    if (!g_aquarium->selected_fish->group)
+    {
+        show_message("Fish is not in any group!");
+        return;
+    }
+
+    remove_fish_from_group(g_aquarium->selected_fish);
+    show_message("✅ Fish removed from group!");
+}
+
+void on_delete_group_clicked(GtkWidget *widget, gpointer data)
+{
+    (void)widget;
+    (void)data;
+    if (!g_aquarium->group_list)
+    {
+        show_message("No groups to delete!");
+        return;
+    }
+
+    GtkWidget *dialog = gtk_dialog_new_with_buttons("Delete Group",
+                                                    NULL, GTK_DIALOG_MODAL,
+                                                    "_Cancel", GTK_RESPONSE_CANCEL,
+                                                    "_Delete", GTK_RESPONSE_ACCEPT, NULL);
+
+    GtkWidget *combo = gtk_combo_box_text_new();
+    Group *group = g_aquarium->group_list;
+    while (group)
+    {
+        char name[128];
+        snprintf(name, sizeof(name), "Group %d: %s (%d fish)", group->id, group->name, group->member_count);
+        gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo), name);
+        group = group->next;
+    }
+
+    gtk_container_add(GTK_CONTAINER(gtk_dialog_get_content_area(GTK_DIALOG(dialog))), combo);
+    gtk_widget_show_all(dialog);
+
+    if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT)
+    {
+        int index = gtk_combo_box_get_active(GTK_COMBO_BOX(combo));
+        if (index >= 0)
+        {
+            group = g_aquarium->group_list;
+            for (int i = 0; i < index && group; i++)
+                group = group->next;
+            if (group)
+            {
+                delete_group(group);
+                show_message("✅ Group deleted!");
+            }
+        }
+    }
+    gtk_widget_destroy(dialog);
+}
+
+void on_delete_fish_clicked(GtkWidget *widget, gpointer data)
+{
+    (void)widget;
+    (void)data;
+    if (!g_aquarium->selected_fish)
+    {
+        show_message("Please select a fish to delete!");
+        return;
+    }
+
+    char msg[256];
+    snprintf(msg, sizeof(msg), "Delete %s (ID: %d)?",
+             g_aquarium->selected_fish->species, g_aquarium->selected_fish->id);
+
+    GtkWidget *dialog = gtk_message_dialog_new(NULL, GTK_DIALOG_MODAL,
+                                               GTK_MESSAGE_QUESTION, GTK_BUTTONS_YES_NO, "%s", msg);
+
+    if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_YES)
+    {
+        remove_fish(g_aquarium->selected_fish);
+        g_aquarium->selected_fish = NULL;
+        show_message("✅ Fish deleted!");
+    }
+    gtk_widget_destroy(dialog);
+}
+
+void on_view_group_clicked(GtkWidget *widget, gpointer data)
+{
+    (void)widget;
+    (void)data;
+    if (!g_aquarium->selected_fish || !g_aquarium->selected_fish->group)
+    {
+        show_message("Selected fish is not in a group!");
+        return;
+    }
+
+    Group *group = g_aquarium->selected_fish->group;
+    char msg[1024];
+    snprintf(msg, sizeof(msg),
+             "📊 GROUP INFO\n\n"
+             "Name: %s (ID: %d)\n"
+             "Leader: %s (ID: %d) 👑\n"
+             "Total Members: %d fish\n\n"
+             "━━━ MEMBERS LIST ━━━\n",
+             group->name, group->id,
+             group->leader->species, group->leader->id,
+             group->member_count);
+
+    char members[512] = "";
+    Fish *current = group->members_head;
+    int member_num = 1;
+    while (current)
+    {
+        char member[128];
+        snprintf(member, sizeof(member), "%d. %s (ID: %d) %s\n",
+                 member_num++, current->species, current->id,
+                 current->is_leader ? "👑 LEADER" : "");
+        strcat(members, member);
+        current = current->next;
+    }
+    strcat(msg, members);
+
+    show_message(msg);
+}
+
+void on_toggle_help(GtkWidget *widget, gpointer data)
+{
+    (void)widget;
+    (void)data;
+    g_aquarium->show_help = !g_aquarium->show_help;
+    gtk_widget_queue_draw(g_aquarium->drawing_area);
+}
+
+void on_toggle_grid(GtkWidget *widget, gpointer data)
+{
+    (void)widget;
+    (void)data;
+    g_aquarium->show_grid = !g_aquarium->show_grid;
+    gtk_widget_queue_draw(g_aquarium->drawing_area);
+}
+
+void on_clear_simulation(GtkWidget *widget, gpointer data)
+{
+    (void)widget;
+    (void)data;
+    GtkWidget *dialog = gtk_message_dialog_new(NULL, GTK_DIALOG_MODAL,
+                                               GTK_MESSAGE_QUESTION, GTK_BUTTONS_YES_NO,
+                                               "⚠️ Clear all fish and groups? This cannot be undone!");
+
+    if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_YES)
+    {
+        Fish *current = g_aquarium->fish_list;
+        while (current)
+        {
+            Fish *next = current->next;
+            g_free(current->species);
+            if (current->image_path)
+                g_free(current->image_path);
+            if (current->image_left)
+                g_object_unref(current->image_left);
+            if (current->image_right)
+                g_object_unref(current->image_right);
+            g_free(current);
+            current = next;
+        }
+
+        Group *group = g_aquarium->group_list;
+        while (group)
+        {
+            Group *next = group->next;
+            g_free(group->name);
+            free(group);
+            group = next;
+        }
+
+        g_aquarium->fish_list = NULL;
+        g_aquarium->group_list = NULL;
+        g_aquarium->selected_fish = NULL;
+        g_aquarium->next_fish_id = 1;
+        g_aquarium->next_group_id = 1;
+        g_aquarium->total_fish_created = 0;
+        g_aquarium->total_fish_dead = 0;
+        g_aquarium->total_eats = 0;
+
+        show_message("✅ Simulation cleared!");
+        update_ui_info();
+        gtk_widget_queue_draw(g_aquarium->drawing_area);
+    }
+    gtk_widget_destroy(dialog);
+}
+
+gboolean on_mouse_click(GtkWidget *widget, GdkEventButton *event, gpointer data)
+{
+    (void)widget;
+    (void)data;
+
+    if (event->button == 1)
+    {
+        Fish *current = g_aquarium->fish_list;
+        Fish *closest = NULL;
+        float min_dist = 30;
+
+        while (current)
+        {
+            if (current->is_alive)
+            {
+                float dx = current->x - event->x;
+                float dy = current->y - event->y;
+                float dist = sqrt(dx * dx + dy * dy);
+                if (dist < min_dist)
+                {
+                    min_dist = dist;
+                    closest = current;
+                }
+            }
+            current = current->next;
+        }
+
+        on_fish_selected(closest);
+    }
+    return FALSE;
+}
+
+gboolean on_key_press(GtkWidget *widget, GdkEventKey *event, gpointer data)
+{
+    (void)widget;
+    (void)data;
+
+    switch (event->keyval)
+    {
+    case GDK_KEY_space:
+        g_aquarium->paused = !g_aquarium->paused;
+        show_message(g_aquarium->paused ? "⏸ Paused" : "▶ Resumed");
+        return TRUE;
+    case GDK_KEY_g:
+    case GDK_KEY_G:
+        on_toggle_grid(NULL, NULL);
+        return TRUE;
+    case GDK_KEY_h:
+    case GDK_KEY_H:
+        on_toggle_help(NULL, NULL);
+        return TRUE;
+    case GDK_KEY_c:
+    case GDK_KEY_C:
+        on_clear_simulation(NULL, NULL);
+        return TRUE;
+    case GDK_KEY_Escape:
+        g_aquarium->selected_fish = NULL;
+        update_ui_info();
+        gtk_widget_queue_draw(g_aquarium->drawing_area);
+        return TRUE;
+    default:
+        break;
+    }
+    return FALSE;
+}
+
+// ============================================================================
+// HTML SESSION SAVE/LOAD (NO JSON - Pure HTML)
+// ============================================================================
+
+// Helper function to extract text between tags
+char* extract_tag_content(const char *html, const char *tag, const char *end_boundary) {
+    char search_tag[256];
+    char end_tag[256];
+    snprintf(search_tag, sizeof(search_tag), "<%s>", tag);
+    snprintf(end_tag, sizeof(end_tag), "</%s>", tag);
+    
+    char *start = strstr(html, search_tag);
+    if (!start || (end_boundary && start > end_boundary)) return NULL;
+    
+    start += strlen(search_tag);
+    char *end = strstr(start, end_tag);
+    if (!end || (end_boundary && end > end_boundary)) return NULL;
+    
+    int len = end - start;
+    char *result = malloc(len + 1);
+    if (result) {
+        strncpy(result, start, len);
+        result[len] = '\0';
+    }
+    return result;
+}
+
+// Save aquarium session as HTML file
+void save_aquarium_as_html(const char *filename) {
+    FILE *file = fopen(filename, "w");
+    if (!file) {
+        show_message("❌ Cannot create HTML session file!");
+        return;
+    }
+    
+    fprintf(file, "<!DOCTYPE html>\n");
+    fprintf(file, "<html>\n");
+    fprintf(file, "<head><meta charset=\"UTF-8\"><title>Aquarium Session</title></head>\n");
+    fprintf(file, "<body>\n");
+    fprintf(file, "<window title=\"Aquarium Simulator\" width=\"%d\" height=\"%d\">\n", 
+            g_aquarium->width, g_aquarium->height);
+    fprintf(file, "    <metadata>\n");
+    fprintf(file, "        <total_fish_created>%d</total_fish_created>\n", g_aquarium->total_fish_created);
+    fprintf(file, "        <total_fish_dead>%d</total_fish_dead>\n", g_aquarium->total_fish_dead);
+    fprintf(file, "        <total_eats>%d</total_eats>\n", g_aquarium->total_eats);
+    fprintf(file, "        <next_fish_id>%d</next_fish_id>\n", g_aquarium->next_fish_id);
+    fprintf(file, "        <next_group_id>%d</next_group_id>\n", g_aquarium->next_group_id);
+    fprintf(file, "        <paused>%s</paused>\n", g_aquarium->paused ? "true" : "false");
+    fprintf(file, "    </metadata>\n");
+    fprintf(file, "    <fish_container>\n");
+    
+    Fish *fish = g_aquarium->fish_list;
+    while (fish) {
+        if (fish->is_alive) {
+            fprintf(file, "        <div id=\"fish_%d\">\n", fish->id);
+            fprintf(file, "            <species>%s</species>\n", fish->species);
+            fprintf(file, "            <x>%.2f</x>\n", fish->x);
+            fprintf(file, "            <y>%.2f</y>\n", fish->y);
+            fprintf(file, "            <vx>%.2f</vx>\n", fish->vx);
+            fprintf(file, "            <vy>%.2f</vy>\n", fish->vy);
+            fprintf(file, "            <size>%.0f</size>\n", fish->size);
+            fprintf(file, "            <speed>%.2f</speed>\n", fish->speed);
+            fprintf(file, "            <type>%d</type>\n", fish->type);
+            fprintf(file, "            <diet>%d</diet>\n", fish->diet);
+            fprintf(file, "            <gender>%d</gender>\n", fish->gender);
+            fprintf(file, "            <health>%.1f</health>\n", fish->health);
+            fprintf(file, "            <hunger>%.1f</hunger>\n", fish->hunger);
+            fprintf(file, "            <energy>%.1f</energy>\n", fish->energy);
+            fprintf(file, "            <age>%.1f</age>\n", fish->age);
+            fprintf(file, "            <image_facing>%d</image_facing>\n", fish->image_facing);
+            fprintf(file, "            <image_path>%s</image_path>\n", fish->image_path ? fish->image_path : "");
+            fprintf(file, "            <group_id>%d</group_id>\n", fish->group ? fish->group->id : -1);
+            fprintf(file, "            <is_leader>%s</is_leader>\n", fish->is_leader ? "true" : "false");
+            fprintf(file, "        </div>\n");
+        }
+        fish = fish->next;
+    }
+    
+    fprintf(file, "    </fish_container>\n");
+    fprintf(file, "    <group_container>\n");
+    
+    Group *group = g_aquarium->group_list;
+    while (group) {
+        fprintf(file, "        <div id=\"group_%d\">\n", group->id);
+        fprintf(file, "            <group_name>%s</group_name>\n", group->name);
+        fprintf(file, "            <leader_id>%d</leader_id>\n", group->leader->id);
+        fprintf(file, "            <members>");
+        Fish *member = group->members_head;
+        int first = 1;
+        while (member) {
+            if (!first) fprintf(file, ",");
+            fprintf(file, "%d", member->id);
+            first = 0;
+            member = member->next;
+        }
+        fprintf(file, "</members>\n");
+        fprintf(file, "        </div>\n");
+        group = group->next;
+    }
+    
+    fprintf(file, "    </group_container>\n");
+    fprintf(file, "</window>\n");
+    fprintf(file, "</body>\n");
+    fprintf(file, "</html>\n");
+    
+    fclose(file);
+    
+    char msg[256];
+    snprintf(msg, sizeof(msg), "✅ Session saved as HTML: %s", filename);
+    show_message(msg);
+}
+
+// Load aquarium from HTML session file
+void load_aquarium_from_html(const char *filename) {
+    FILE *file = fopen(filename, "r");
+    if (!file) {
+        show_message("❌ Cannot open HTML session file!");
+        return;
+    }
+    
+    fseek(file, 0, SEEK_END);
+    long file_size = ftell(file);
+    fseek(file, 0, SEEK_SET);
+    char *html_content = malloc(file_size + 1);
+    fread(html_content, 1, file_size, file);
+    html_content[file_size] = '\0';
+    fclose(file);
+    
+    on_clear_simulation(NULL, NULL);
+    
+    char *metadata = strstr(html_content, "<metadata>");
+    char *metadata_end = strstr(html_content, "</metadata>");
+    if (metadata && metadata_end) {
+        char *total_created = extract_tag_content(metadata, "total_fish_created", metadata_end);
+        char *total_dead = extract_tag_content(metadata, "total_fish_dead", metadata_end);
+        char *total_eats_val = extract_tag_content(metadata, "total_eats", metadata_end);
+        char *next_fish = extract_tag_content(metadata, "next_fish_id", metadata_end);
+        char *next_group = extract_tag_content(metadata, "next_group_id", metadata_end);
+        
+        if (total_created) g_aquarium->total_fish_created = atoi(total_created);
+        if (total_dead) g_aquarium->total_fish_dead = atoi(total_dead);
+        if (total_eats_val) g_aquarium->total_eats = atoi(total_eats_val);
+        if (next_fish) g_aquarium->next_fish_id = atoi(next_fish);
+        if (next_group) g_aquarium->next_group_id = atoi(next_group);
+        
+        free(total_created); free(total_dead); free(total_eats_val); free(next_fish); free(next_group);
+    }
+    
+    char *fish_container = strstr(html_content, "<fish_container>");
+    char *fish_end = strstr(html_content, "</fish_container>");
+    if (fish_container && fish_end) {
+        char *div = fish_container;
+        while ((div = strstr(div + 1, "<div id=\"fish_")) && div < fish_end) {
+            int fish_id = 0;
+            char *id_start = strstr(div, "id=\"fish_");
+            if (id_start) {
+                id_start += 9;
+                char *id_end = strchr(id_start, '"');
+                if (id_end) {
+                    char id_str[32];
+                    int len = id_end - id_start;
+                    if (len < 32) {
+                        strncpy(id_str, id_start, len);
+                        id_str[len] = '\0';
+                        fish_id = atoi(id_str);
+                    }
+                }
+            }
+            
+            char *species = extract_tag_content(div, "species", fish_end);
+            char *x_str = extract_tag_content(div, "x", fish_end);
+            char *y_str = extract_tag_content(div, "y", fish_end);
+            char *size_str = extract_tag_content(div, "size", fish_end);
+            char *speed_str = extract_tag_content(div, "speed", fish_end);
+            char *type_str = extract_tag_content(div, "type", fish_end);
+            char *diet_str = extract_tag_content(div, "diet", fish_end);
+            char *gender_str = extract_tag_content(div, "gender", fish_end);
+            char *facing_str = extract_tag_content(div, "image_facing", fish_end);
+            char *image_path = extract_tag_content(div, "image_path", fish_end);
+            
+            if (species && x_str && y_str) {
+                Fish *new_fish = create_fish(species, image_path && image_path[0] ? image_path : NULL,
+                                              atof(x_str), atof(y_str), atof(size_str), atof(speed_str),
+                                              atoi(type_str), atoi(diet_str), atoi(gender_str), atoi(facing_str));
+                new_fish->id = fish_id;
+                add_fish(new_fish);
+            }
+            
+            free(species); free(x_str); free(y_str); free(size_str); free(speed_str);
+            free(type_str); free(diet_str); free(gender_str); free(facing_str); free(image_path);
+        }
+    }
+    
+    char *group_container = strstr(html_content, "<group_container>");
+    char *group_end = strstr(html_content, "</group_container>");
+    if (group_container && group_end) {
+        char *div = group_container;
+        while ((div = strstr(div + 1, "<div id=\"group_")) && div < group_end) {
+            char *group_name = extract_tag_content(div, "group_name", group_end);
+            char *leader_id_str = extract_tag_content(div, "leader_id", group_end);
+            
+            if (group_name && leader_id_str) {
+                int leader_id = atoi(leader_id_str);
+                Fish *leader = g_aquarium->fish_list;
+                while (leader && leader->id != leader_id) leader = leader->next;
+                
+                if (leader) {
+                    create_group(group_name, leader);
+                }
+            }
+            
+            free(group_name); free(leader_id_str);
+        }
+    }
+    
+    free(html_content);
+    update_ui_info();
+    gtk_widget_queue_draw(g_aquarium->drawing_area);
+    
+    char msg[256];
+    snprintf(msg, sizeof(msg), "✅ Loaded %d fish from HTML session", count_alive_fish());
+    show_message(msg);
+}
+
+// HTML save dialog
+void save_html_session_dialog(void) {
+    GtkWidget *dialog = gtk_file_chooser_dialog_new("Save Aquarium Session (HTML)",
+                          NULL, GTK_FILE_CHOOSER_ACTION_SAVE,
+                          "_Cancel", GTK_RESPONSE_CANCEL,
+                          "_Save", GTK_RESPONSE_ACCEPT, NULL);
+    gtk_file_chooser_set_current_name(GTK_FILE_CHOOSER(dialog), "aquarium_session.html");
+    GtkFileFilter *filter = gtk_file_filter_new();
+    gtk_file_filter_set_name(filter, "HTML Files");
+    gtk_file_filter_add_pattern(filter, "*.html");
+    gtk_file_chooser_add_filter(GTK_FILE_CHOOSER(dialog), filter);
+    
+    if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
+        char *filename = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
+        save_aquarium_as_html(filename);
+        g_free(filename);
+    }
+    gtk_widget_destroy(dialog);
+}
+
+// HTML load dialog
+void load_html_session_dialog(void) {
+    GtkWidget *dialog = gtk_file_chooser_dialog_new("Load Aquarium Session (HTML)",
+                          NULL, GTK_FILE_CHOOSER_ACTION_OPEN,
+                          "_Cancel", GTK_RESPONSE_CANCEL,
+                          "_Load", GTK_RESPONSE_ACCEPT, NULL);
+    GtkFileFilter *filter = gtk_file_filter_new();
+    gtk_file_filter_set_name(filter, "HTML Files");
+    gtk_file_filter_add_pattern(filter, "*.html");
+    gtk_file_chooser_add_filter(GTK_FILE_CHOOSER(dialog), filter);
+    
+    if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
+        char *filename = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
+        GtkWidget *confirm = gtk_message_dialog_new(NULL, GTK_DIALOG_MODAL,
+                              GTK_MESSAGE_QUESTION, GTK_BUTTONS_YES_NO,
+                              "Load session? Current aquarium will be replaced.");
+        if (gtk_dialog_run(GTK_DIALOG(confirm)) == GTK_RESPONSE_YES) {
+            on_clear_simulation(NULL, NULL);
+            load_aquarium_from_html(filename);
+        }
+        gtk_widget_destroy(confirm);
+        g_free(filename);
+    }
+    gtk_widget_destroy(dialog);
+}
+
+void on_save_html_clicked(GtkWidget *widget, gpointer data) {
+    (void)widget; (void)data;
+    save_html_session_dialog();
+}
+
+void on_load_html_clicked(GtkWidget *widget, gpointer data) {
+    (void)widget; (void)data;
+    load_html_session_dialog();
+}
+
+// ============================================================================
+// INITIALIZATION
+// ============================================================================
+
+void init_aquarium(int width, int height) {
+    g_aquarium = malloc(sizeof(Aquarium));
+    memset(g_aquarium, 0, sizeof(Aquarium));
+    
+    g_aquarium->width = width;
+    g_aquarium->height = height;
+    g_aquarium->is_running = 1;
+    g_aquarium->next_fish_id = 1;
+    g_aquarium->next_group_id = 1;
+    g_aquarium->total_fish_created = 0;
+    g_aquarium->total_fish_dead = 0;
+    g_aquarium->total_eats = 0;
+    g_aquarium->show_help = 1;
+    g_aquarium->show_grid = 0;
+    g_aquarium->paused = 0;
+    g_aquarium->selected_fish = NULL;
+    g_aquarium->fish_list = NULL;
+    g_aquarium->group_list = NULL;
+    
+    srand(time(NULL));
+    g_aquarium->animation_timer = g_timeout_add(FRAME_INTERVAL, animation_tick, NULL);
+}
+
+void create_aquarium_window(void)
+{
+    ProgramStart();
+
+    GtkWidget *window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    gtk_window_set_default_size(GTK_WINDOW(window), 1400, 900);
+    gtk_window_set_title(GTK_WINDOW(window), "🐠 Aquarium Simulator");
+    gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
+
+    GtkWidget *main_vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
+    gtk_container_add(GTK_CONTAINER(window), main_vbox);
+
+    GtkWidget *toolbar = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5);
+    gtk_widget_set_margin_start(toolbar, 10);
+    gtk_widget_set_margin_end(toolbar, 10);
+    gtk_widget_set_margin_top(toolbar, 5);
+    gtk_widget_set_margin_bottom(toolbar, 5);
+
+    GtkWidget *add_btn = gtk_button_new_with_label("➕ Add Fish");
+    GtkWidget *delete_btn = gtk_button_new_with_label("🗑 Delete Selected");
+    GtkWidget *clear_btn = gtk_button_new_with_label("🗑 Clear All");
+    GtkWidget *create_group_btn = gtk_button_new_with_label("👥 Create Group");
+    GtkWidget *add_to_group_btn = gtk_button_new_with_label("➕ Add to Group");
+    GtkWidget *remove_from_group_btn = gtk_button_new_with_label("➖ Remove from Group");
+    GtkWidget *delete_group_btn = gtk_button_new_with_label("❌ Delete Group");
+    GtkWidget *view_group_btn = gtk_button_new_with_label("👁️ View Group");
+    GtkWidget *grid_btn = gtk_button_new_with_label("📊 Grid");
+    GtkWidget *help_btn = gtk_button_new_with_label("❓ Help");
+    GtkWidget *save_html_btn = gtk_button_new_with_label("💾 Save HTML");
+    GtkWidget *load_html_btn = gtk_button_new_with_label("📂 Load HTML");
+
+    g_signal_connect(add_btn, "clicked", G_CALLBACK(on_add_fish_clicked), NULL);
+    g_signal_connect(delete_btn, "clicked", G_CALLBACK(on_delete_fish_clicked), NULL);
+    g_signal_connect(clear_btn, "clicked", G_CALLBACK(on_clear_simulation), NULL);
+    g_signal_connect(create_group_btn, "clicked", G_CALLBACK(on_create_group_clicked), NULL);
+    g_signal_connect(add_to_group_btn, "clicked", G_CALLBACK(on_add_to_group_clicked), NULL);
+    g_signal_connect(remove_from_group_btn, "clicked", G_CALLBACK(on_remove_from_group_clicked), NULL);
+    g_signal_connect(delete_group_btn, "clicked", G_CALLBACK(on_delete_group_clicked), NULL);
+    g_signal_connect(view_group_btn, "clicked", G_CALLBACK(on_view_group_clicked), NULL);
+    g_signal_connect(grid_btn, "clicked", G_CALLBACK(on_toggle_grid), NULL);
+    g_signal_connect(help_btn, "clicked", G_CALLBACK(on_toggle_help), NULL);
+    g_signal_connect(save_html_btn, "clicked", G_CALLBACK(on_save_html_clicked), NULL);
+    g_signal_connect(load_html_btn, "clicked", G_CALLBACK(on_load_html_clicked), NULL);
+
+    gtk_box_pack_start(GTK_BOX(toolbar), add_btn, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(toolbar), delete_btn, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(toolbar), clear_btn, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(toolbar), gtk_separator_new(GTK_ORIENTATION_VERTICAL), FALSE, FALSE, 10);
+    gtk_box_pack_start(GTK_BOX(toolbar), create_group_btn, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(toolbar), add_to_group_btn, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(toolbar), remove_from_group_btn, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(toolbar), delete_group_btn, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(toolbar), view_group_btn, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(toolbar), gtk_separator_new(GTK_ORIENTATION_VERTICAL), FALSE, FALSE, 10);
+    gtk_box_pack_end(GTK_BOX(toolbar), save_html_btn, FALSE, FALSE, 0);
+    gtk_box_pack_end(GTK_BOX(toolbar), load_html_btn, FALSE, FALSE, 0);
+    gtk_box_pack_end(GTK_BOX(toolbar), help_btn, FALSE, FALSE, 0);
+    gtk_box_pack_end(GTK_BOX(toolbar), grid_btn, FALSE, FALSE, 0);
+
+    gtk_box_pack_start(GTK_BOX(main_vbox), toolbar, FALSE, FALSE, 0);
+
+    g_aquarium->info_label = gtk_label_new("🐠 Aquarium Simulator - Click on fish to select");
+    gtk_widget_set_margin_start(g_aquarium->info_label, 10);
+    gtk_widget_set_margin_end(g_aquarium->info_label, 10);
+    gtk_box_pack_start(GTK_BOX(main_vbox), g_aquarium->info_label, FALSE, FALSE, 0);
+
+    g_aquarium->drawing_area = gtk_drawing_area_new();
+    gtk_widget_set_hexpand(g_aquarium->drawing_area, TRUE);
+    gtk_widget_set_vexpand(g_aquarium->drawing_area, TRUE);
+
+    g_signal_connect(g_aquarium->drawing_area, "draw", G_CALLBACK(draw_callback), NULL);
+    g_signal_connect(g_aquarium->drawing_area, "button-press-event", G_CALLBACK(on_mouse_click), NULL);
+    g_signal_connect(window, "key-press-event", G_CALLBACK(on_key_press), NULL);
+    gtk_widget_add_events(g_aquarium->drawing_area, GDK_BUTTON_PRESS_MASK);
+    gtk_box_pack_start(GTK_BOX(main_vbox), g_aquarium->drawing_area, TRUE, TRUE, 0);
+
+    g_aquarium->status_bar = gtk_label_new("💡 Tips: Click on fish to select | SPACE to pause | H for help | C to clear");
+    gtk_widget_set_margin_start(g_aquarium->status_bar, 10);
+    gtk_widget_set_margin_end(g_aquarium->status_bar, 10);
+    gtk_box_pack_start(GTK_BOX(main_vbox), g_aquarium->status_bar, FALSE, FALSE, 0);
+
+    g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
+    gtk_widget_show_all(window);
+    
+    MainStart();
+    cleanup_aquarium();
+}
+
+void cleanup_aquarium(void) {
+    if (!g_aquarium) return;
+    
+    if (g_aquarium->animation_timer) g_source_remove(g_aquarium->animation_timer);
+    
+    Fish *fish = g_aquarium->fish_list;
+    while (fish) {
+        Fish *next = fish->next;
+        g_free(fish->species);
+        if (fish->image_path) g_free(fish->image_path);
+        if (fish->image_left) g_object_unref(fish->image_left);
+        if (fish->image_right) g_object_unref(fish->image_right);
+        g_free(fish);
+        fish = next;
+    }
+    
+    Group *group = g_aquarium->group_list;
+    while (group) {
+        Group *next = group->next;
+        g_free(group->name);
+        free(group);
+        group = next;
+    }
+    
+    free(g_aquarium);
+    g_aquarium = NULL;
+}
+</file>
+
+<file path="aquarium.h">
+#ifndef AQUARIUM_H
+#define AQUARIUM_H
+
+#include "structures.h"
+#include <math.h>
+#include <time.h>
+#include <gdk/gdk.h>
+// Add to aquarium.h after includes
+#include <json-c/json.h>
+
+// Add these function declarations
+void save_aquarium_session(const char *filename);
+void load_aquarium_session(const char *filename);
+void on_save_session_clicked(GtkWidget *widget, gpointer data);
+void on_load_session_clicked(GtkWidget *widget, gpointer data);
+void on_new_session_clicked(GtkWidget *widget, gpointer data);
+void show_load_dialog(void);
+void show_save_dialog(void);
+
+#define MAX_FISH 300
+#define MAX_GROUPS 50
+#define MAX_SPEED 7.0
+#define MIN_SPEED 1.2
+#define FRAME_INTERVAL 33
+#define MAX_FOOD 50
+
+typedef struct Fish Fish;
+typedef struct Group Group;
+typedef struct Food Food;
+
+typedef enum {
+    DIRECTION_LEFT,
+    DIRECTION_RIGHT
+} FishDirection;
+
+typedef enum {
+    TYPE_PREY,
+    TYPE_PREDATOR
+} FishType;
+
+typedef enum {
+    DIET_HERBIVORE,
+    DIET_CARNIVORE,
+    DIET_OMNIVORE
+} DietType;
+
+typedef enum {
+    GENDER_MALE,
+    GENDER_FEMALE
+} Gender;
+
+typedef enum {
+    GOAL_IDLE,
+    GOAL_SEARCH_FOOD,
+    GOAL_ESCAPE,
+    GOAL_FOLLOW_LEADER,
+    GOAL_HUNT
+} Goal;
+
+typedef enum {
+    STATUS_ALIVE,
+    STATUS_DEAD,
+    STATUS_HUNGRY,
+    STATUS_SICK
+} LifeStatus;
+
+// Food structure
+struct Food {
+    float x, y;
+    float energy;
+    int is_alive;
+};
+
+// Fish structure
+struct Fish {
+    int id;
+    char *species;
+    char *image_path;
+    GdkPixbuf *image_left;
+    GdkPixbuf *image_right;
+    
+    float x, y;
+    float vx, vy;
+    float target_vx, target_vy;
+    float size;
+    float speed;
+    
+    FishType type;
+    DietType diet;
+    Gender gender;
+    float health;
+    float hunger;
+    float energy;
+    float age;
+    LifeStatus status;
+    int is_alive;
+    
+    FishDirection direction;
+    FishDirection image_facing;
+    struct Group *group;
+    int is_leader;
+    int leader_order;
+    
+    Goal current_goal;
+    
+    struct Fish *next;
+    struct Fish *prev;
+};
+
+// Group structure
+struct Group {
+    int id;
+    char *name;
+    Fish *leader;
+    Fish *members_head;
+    Fish *members_tail;
+    int member_count;
+    float center_x, center_y;
+    struct Group *next;
+};
+
+// Environment structure
+typedef struct {
+    int width, height;
+    Food food_sources[50];
+    int food_count;
+} Environment;
+
+// In aquarium.h, update the Aquarium struct definition:
+typedef struct {
+    Fish *fish_list;
+    Group *group_list;
+    GQueue *delete_stack;
+    GHashTable *fish_by_id;        // Add this line
+    GtkWidget *drawing_area;
+    GtkWidget *info_label;
+    GtkWidget *group_combo;
+    GtkWidget *status_bar;
+    Environment env;
+    int next_fish_id;
+    int next_group_id;
+    int width, height;
+    int is_running;
+    double current_time;
+    float mouse_x, mouse_y;
+    
+    // Statistics
+    int total_fish_created;
+    int total_fish_dead;
+    int total_eats;
+    
+    // UI State
+    Fish *selected_fish;
+    Group *selected_group;
+    int show_help;
+    int show_grid;
+    int paused;
+    
+    // Timer
+    guint animation_timer;
+} Aquarium;
+
+extern Aquarium *g_aquarium;
+
+// Core functions
+void init_aquarium(int width, int height);
+void cleanup_aquarium(void);
+void update_simulation(void);
+gboolean animation_tick(gpointer data);
+
+// Fish management
+Fish* create_fish(const char *species, const char *image_path, float x, float y,
+                  float size, float speed, FishType type, DietType diet,
+                  Gender gender, FishDirection image_facing);
+void add_fish(Fish *fish);
+void remove_fish(Fish *fish);
+void delete_last_fish(void);
+Fish* get_last_fish(void);
+int count_alive_fish(void);
+
+// Group management
+Group* create_group(const char *name, Fish *leader);
+void add_fish_to_group(Group *group, Fish *fish);
+void remove_fish_from_group(Fish *fish);
+void delete_group(Group *group);
+Group* find_group_by_id(int id);
+void update_group_formation(Group *group);
+void promote_next_leader(Group *group);
+void set_fish_status(Fish *fish, LifeStatus status);
+
+// Health and life
+void update_fish_health(Fish *fish);
+void fish_die(Fish *fish);
+void update_life_status(Fish *fish);
+int is_fish_visible(Fish *fish);
+// Behavior
+void update_fish_movement(Fish *fish, float dt);
+void apply_boundary_wrap(Fish *fish);
+void apply_group_behavior(Fish *fish);
+void apply_random_movement(Fish *fish);
+void enforce_direction(Fish *fish);
+
+// Predator-prey
+Fish* find_nearest_prey(Fish *predator);
+Fish* find_nearest_predator(Fish *prey);
+void handle_predation(Fish *predator, Fish *prey);
+void check_predation(void);
+
+// Drawing
+gboolean draw_callback(GtkWidget *widget, cairo_t *cr, gpointer data);
+void draw_water_background(cairo_t *cr);
+void draw_fish(cairo_t *cr, Fish *fish);
+void draw_stats_panel(cairo_t *cr);
+void draw_help_overlay(cairo_t *cr);
+void draw_grid(cairo_t *cr);
+void cairo_round_rectangle(cairo_t *cr, double x, double y, double w, double h, double r);
+// Add to aquarium.h
+// Add to aquarium.h
+void save_aquarium_as_html(const char *filename);
+void load_aquarium_from_html(const char *filename);
+void save_html_session_dialog(void);
+void load_html_session_dialog(void);
+void on_save_html_clicked(GtkWidget *widget, gpointer data);
+void on_load_html_clicked(GtkWidget *widget, gpointer data);
+char* extract_tag_content(const char *html, const char *tag, const char *end_boundary);
+void create_aquarium_window(void);
+// UI Callbacks
+void on_add_fish_clicked(GtkWidget *widget, gpointer data);
+void on_create_group_clicked(GtkWidget *widget, gpointer data);
+void on_add_to_group_clicked(GtkWidget *widget, gpointer data);
+void on_remove_from_group_clicked(GtkWidget *widget, gpointer data);
+void on_delete_group_clicked(GtkWidget *widget, gpointer data);
+void on_delete_fish_clicked(GtkWidget *widget, gpointer data);
+void on_view_group_clicked(GtkWidget *widget, gpointer data);
+void on_toggle_help(GtkWidget *widget, gpointer data);
+void on_toggle_grid(GtkWidget *widget, gpointer data);
+void on_clear_simulation(GtkWidget *widget, gpointer data);
+void on_fish_selected(Fish *fish);
+gboolean on_mouse_click(GtkWidget *widget, GdkEventButton *event, gpointer data);
+gboolean on_key_press(GtkWidget *widget, GdkEventKey *event, gpointer data);
+
+// Dialogs
+GtkWidget* create_fish_dialog(void);
+GtkWidget* create_group_dialog(void);
+void on_fish_dialog_response(GtkDialog *dialog, gint response_id, gpointer data);
+void on_group_dialog_response(GtkDialog *dialog, gint response_id, gpointer data);
+
+// Utilities
+void update_ui_info(void);
+void show_message(const char *msg);
+double get_current_time(void);
+
+#endif
+</file>
+
+<file path="BUILD_README.md">
+# Aquarium GTK Application - Build and Run Guide
+
+## Problem Fixed
+
+The application was failing with this error:
+```
+./aquarium: symbol lookup error: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: 
+undefined symbol: __libc_pthread_init, version GLIBC_PRIVATE
+```
+
+### Root Cause
+When running from VS Code (which is installed as a snap), the environment becomes contaminated with snap-specific library paths. This causes GTK3 and pthread libraries to load from the snap environment, which creates version incompatibilities with the system's glibc.
+
+### Solution Applied
+
+**Two fixes have been implemented:**
+
+1. **Recompiled the binary** with a clean compilation using the system's gcc and libraries (no snap contamination)
+2. **Created a wrapper script** (`run_aquarium.sh`) that clears problematic snap-related environment variables before running the binary
+
+## Building the Application
+
+### Prerequisites
+Ensure you have the required development libraries installed:
+```bash
+sudo apt install libgtk-3-dev libjson-c-dev
+```
+
+### Build Instructions
+
+#### Option 1: Using the Makefile (Recommended)
+```bash
+make clean
+make
+```
+
+To rebuild from scratch:
+```bash
+make rebuild
+```
+
+#### Option 2: Manual Compilation
+```bash
+gcc -o aquarium main.c aquarium.c structures.c -Wall -pthread \
+    $(pkg-config --cflags --libs gtk+-3.0 json-c) -lm
+```
+
+## Running the Application
+
+### Method 1: Using the Wrapper Script (Recommended)
+```bash
+./run_aquarium.sh
+```
+
+This automatically clears snap environment variables that interfere with library loading.
+
+### Method 2: Direct Execution
+If you're running from a non-snap terminal environment, you can run directly:
+```bash
+./aquarium
+```
+
+### Method 3: Manual Environment Cleanup
+If you need to run from VS Code's terminal, you can manually clean the environment:
+```bash
+unset GTK_PATH GTK_EXE_PREFIX GTK_IM_MODULE_FILE LOCPATH GIO_MODULE_DIR \
+      GSETTINGS_SCHEMA_DIR XDG_DATA_HOME SNAP
+./aquarium
+```
+
+## Troubleshooting
+
+### Still Getting Symbol Lookup Error?
+1. Make sure you're using the wrapper script: `./run_aquarium.sh`
+2. Or rebuild the binary: `make clean && make`
+3. Check that GTK3 development libraries are installed properly
+
+### Display Issues
+If you get "cannot open display", ensure:
+- You have an X server running
+- The `DISPLAY` variable is set correctly (usually `:0` or `:1`)
+
+### Missing Libraries
+If you get "cannot find library" errors during compilation, install the missing dev packages:
+```bash
+sudo apt install libgtk-3-dev libjson-c-dev libcairo2-dev libpango1.0-dev
+```
+
+## Files Modified
+
+- `aquarium.c`, `structures.c`, `main.c` - Recompiled with clean environment
+- `run_aquarium.sh` - New wrapper script for safe execution
+- `Makefile` - New build configuration file
+
+## Notes
+
+- The wrapper script `run_aquarium.sh` is the recommended way to run the application
+- The Makefile ensures consistent, clean builds without snap interference
+- The recompiled binary includes proper system library linking
+</file>
+
+<file path="main.c">
+// main.c
+#include "aquarium.h"
+
+int main(void) {
+    init_aquarium(1200, 800);
+    create_aquarium_window();
+    return 0;
+}
+</file>
+
+<file path="Makefile">
+# Makefile for Aquarium GTK Application
+# Compiles the aquarium application with proper GTK3 and json-c dependencies
+
+# Compiler and flags
+CC = gcc
+CFLAGS = -Wall -g -O2
+LDFLAGS = -pthread -lm
+
+# GTK and json-c libraries
+GTK_CFLAGS = $(shell pkg-config --cflags gtk+-3.0)
+GTK_LIBS = $(shell pkg-config --libs gtk+-3.0)
+JSON_LIBS = $(shell pkg-config --libs json-c)
+
+# Source files
+SOURCES = main.c aquarium.c structures.c
+HEADERS = aquarium.h structures.h
+OBJECTS = $(SOURCES:.c=.o)
+TARGET = aquarium
+
+# Default target
+all: $(TARGET)
+
+# Build the executable
+$(TARGET): $(OBJECTS)
+	$(CC) -o $@ $^ $(GTK_CFLAGS) $(GTK_LIBS) $(JSON_LIBS) $(LDFLAGS)
+
+# Compile object files
+%.o: %.c $(HEADERS)
+	$(CC) $(CFLAGS) $(GTK_CFLAGS) -c $< -o $@
+
+# Clean build artifacts
+clean:
+	rm -f $(OBJECTS) $(TARGET)
+
+# Rebuild everything
+rebuild: clean all
+
+# Help target
+help:
+	@echo "Available targets:"
+	@echo "  all     - Build the aquarium executable (default)"
+	@echo "  clean   - Remove build artifacts"
+	@echo "  rebuild - Clean and build"
+	@echo "  help    - Show this help message"
+
+.PHONY: all clean rebuild help
+</file>
+
+<file path="run_aquarium.sh">
+#!/bin/bash
+# Wrapper script to run aquarium with clean environment, avoiding snap library conflicts
+
+# Unset all snap-related variables that interfere with library loading
+unset GTK_PATH
+unset GTK_EXE_PREFIX
+unset GTK_IM_MODULE_FILE
+unset LOCPATH
+unset GIO_MODULE_DIR
+unset GSETTINGS_SCHEMA_DIR
+unset XDG_DATA_HOME
+unset SNAP
+
+# Keep only essential environment variables
+export LC_ALL=C.UTF-8
+export DISPLAY="${DISPLAY:-:0}"
+
+# Run the aquarium binary
+exec "$(dirname "$0")/aquarium" "$@"
+</file>
+
+<file path="structures.c">
+#include "structures.h"
+#include <gdk/gdk.h>
+
+// Add this at the top of structures.c
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
+
+GtkCssProvider *global_css_provider = NULL;
+
+void ProgramStart(){
+    gtk_init(NULL, NULL);
+    global_css_provider = gtk_css_provider_new();
+}
+
+
+void ProgramEnd(){
+    gtk_main_quit();
+    if (global_css_provider) {
+        g_object_unref(global_css_provider);
+    }
+}
+
+void MainStart(){
+    gtk_main();
+}
+
+void apply_css(GtkWidget *widget, const char *css) {
+    if (!widget || !css) return;
+    
+    GtkCssProvider *provider = gtk_css_provider_new();
+    GError *error = NULL;
+    
+    if (!gtk_css_provider_load_from_data(provider, css, -1, &error)) {
+        g_printerr("CSS Error: %s\n", error->message);
+        g_error_free(error);
+    } else {
+        GtkStyleContext *context = gtk_widget_get_style_context(widget);
+        gtk_style_context_add_provider(context, GTK_STYLE_PROVIDER(provider), 
+                                       GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+    }
+    g_object_unref(provider);
+}
+
+void refresh_widget(GtkWidget *widget) {
+    if (widget) {
+        gtk_widget_queue_draw(widget);
+    }
+}
+
+/* ---------- Window Functions ---------- */
+
+window* create_window() {
+    window *wn = malloc(sizeof(window));
+    if (!wn) exit(1);
+    
+    wn->win = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    wn->title = NULL;
+    wn->icon_path = NULL;
+    wn->bg_image = NULL;
+    wn->bg_color = NULL;
+    wn->width = 400;
+    wn->height = 300;
+    wn->resizable = TRUE;
+    wn->modal = FALSE;
+    wn->opacity = 1.0;
+    wn->fullscreen = FALSE;
+    wn->keep_below = FALSE;
+    wn->type_win = GTK_WINDOW_TOPLEVEL;
+    wn->drawing_area = NULL;
+    wn->css_provider = NULL;
+    
+    return wn;
+}
+
+void update_window(window *wn) {
+    if (!wn || !wn->win) return;
+    
+    if (wn->title) {
+        gtk_window_set_title(GTK_WINDOW(wn->win), wn->title);
+    }
+    
+    gtk_window_set_default_size(GTK_WINDOW(wn->win), wn->width, wn->height);
+    gtk_window_set_resizable(GTK_WINDOW(wn->win), wn->resizable);
+    gtk_window_set_modal(GTK_WINDOW(wn->win), wn->modal);
+    gtk_widget_set_opacity(wn->win, wn->opacity);
+    
+    if (wn->bg_color) {
+        char css[256];
+        snprintf(css, sizeof(css), "window { background-color: %s; }", wn->bg_color);
+        if (!wn->css_provider) wn->css_provider = gtk_css_provider_new();
+        gtk_css_provider_load_from_data(wn->css_provider, css, -1, NULL);
+        GtkStyleContext *context = gtk_widget_get_style_context(wn->win);
+        gtk_style_context_add_provider(context, GTK_STYLE_PROVIDER(wn->css_provider), 
+                                       GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+    }
+    
+    if (wn->icon_path) {
+        gtk_window_set_icon_from_file(GTK_WINDOW(wn->win), wn->icon_path, NULL);
+    }
+    
+    if (wn->fullscreen) {
+        gtk_window_fullscreen(GTK_WINDOW(wn->win));
+    }
+}
+
+void display_window(window *wn) {
+    if (wn && wn->win) {
+        update_window(wn);
+        gtk_widget_show_all(wn->win);
+    }
+}
+
+void close_window(window *wn) {
+    if (wn && wn->win) {
+        g_signal_connect(wn->win, "destroy", G_CALLBACK(gtk_main_quit), NULL);
+    }
+}
+
+/* ---------- Header Bar Functions ---------- */
+
+header_bar* create_header_bar() {
+    header_bar *hdb = malloc(sizeof(header_bar));
+    if (!hdb) exit(1);
+    
+    hdb->header_bar = gtk_header_bar_new();
+    hdb->title = NULL;
+    hdb->sub_title = NULL;
+    hdb->title_style = NULL;
+    hdb->icon_path = NULL;
+    hdb->width = -1;
+    hdb->height = -1;
+    hdb->close_button_show = FALSE;
+    hdb->decoration_layout = NULL;
+    
+    GtkWidget *title_label = gtk_label_new("");
+    gtk_header_bar_set_custom_title(GTK_HEADER_BAR(hdb->header_bar), title_label);
+    
+    return hdb;
+}
+
+void update_header_bar(header_bar *hdb) {
+    if (!hdb || !hdb->header_bar) return;
+    
+    GtkWidget *title_widget = gtk_header_bar_get_custom_title(GTK_HEADER_BAR(hdb->header_bar));
+    
+    if (hdb->title && title_widget && GTK_IS_LABEL(title_widget)) {
+        gtk_label_set_text(GTK_LABEL(title_widget), hdb->title);
+        
+        if (hdb->title_style) {
+            PangoAttrList *attrs = pango_attr_list_new();
+            if (strstr(hdb->title_style, "bold")) {
+                pango_attr_list_insert(attrs, pango_attr_weight_new(PANGO_WEIGHT_BOLD));
+            }
+            if (strstr(hdb->title_style, "italic")) {
+                pango_attr_list_insert(attrs, pango_attr_style_new(PANGO_STYLE_ITALIC));
+            }
+            if (strstr(hdb->title_style, "underline")) {
+                pango_attr_list_insert(attrs, pango_attr_underline_new(PANGO_UNDERLINE_SINGLE));
+            }
+            gtk_label_set_attributes(GTK_LABEL(title_widget), attrs);
+            pango_attr_list_unref(attrs);
+        }
+    }
+    
+    if (hdb->sub_title) {
+        gtk_header_bar_set_subtitle(GTK_HEADER_BAR(hdb->header_bar), hdb->sub_title);
+    }
+    
+    gtk_header_bar_set_show_close_button(GTK_HEADER_BAR(hdb->header_bar), hdb->close_button_show);
+    
+    if (hdb->width > 0 && hdb->height > 0) {
+        gtk_widget_set_size_request(hdb->header_bar, hdb->width, hdb->height);
+    }
+}
+
+void display_header_bar(header_bar *hdb) {
+    if (hdb && hdb->header_bar) {
+        update_header_bar(hdb);
+        gtk_widget_show_all(hdb->header_bar);
+    }
+}
+
+/* ---------- Button Functions ---------- */
+
+button* create_button() {
+    button *btn = malloc(sizeof(button));
+    if (!btn) exit(1);
+    
+    btn->button = gtk_button_new();
+    btn->label = g_strdup("Button");
+    btn->bg_image = NULL;
+    btn->bg_color = NULL;
+    btn->label_style = NULL;
+    btn->width = -1;
+    btn->height = -1;
+    btn->click_callback = NULL;
+    btn->callback_data = NULL;
+    
+    gtk_button_set_label(GTK_BUTTON(btn->button), btn->label);
+    
+    return btn;
+}
+
+void update_button(button *btn) {
+    if (!btn || !btn->button) return;
+    
+    if (btn->label) {
+        gtk_button_set_label(GTK_BUTTON(btn->button), btn->label);
+    }
+    
+    if (btn->width > 0 && btn->height > 0) {
+        gtk_widget_set_size_request(btn->button, btn->width, btn->height);
+        gtk_widget_set_hexpand(btn->button, FALSE);
+        gtk_widget_set_vexpand(btn->button, FALSE);
+    }
+    
+    if (btn->bg_color) {
+        char css[256];
+        snprintf(css, sizeof(css), "button { background-color: %s; }", btn->bg_color);
+        apply_css(btn->button, css);
+        gtk_button_set_relief(GTK_BUTTON(btn->button), GTK_RELIEF_NONE);
+    }
+    
+    if (btn->label_style) {
+        GtkWidget *label_widget = gtk_bin_get_child(GTK_BIN(btn->button));
+        if (label_widget && GTK_IS_LABEL(label_widget)) {
+            PangoAttrList *attrs = pango_attr_list_new();
+            if (strstr(btn->label_style, "bold")) {
+                pango_attr_list_insert(attrs, pango_attr_weight_new(PANGO_WEIGHT_BOLD));
+            }
+            if (strstr(btn->label_style, "italic")) {
+                pango_attr_list_insert(attrs, pango_attr_style_new(PANGO_STYLE_ITALIC));
+            }
+            gtk_label_set_attributes(GTK_LABEL(label_widget), attrs);
+            pango_attr_list_unref(attrs);
+        }
+    }
+    
+    if (btn->click_callback) {
+        g_signal_connect(btn->button, "clicked", G_CALLBACK(btn->click_callback), btn->callback_data);
+    }
+}
+
+/* ---------- Label Functions ---------- */
+
+label* create_label() {
+    label *lb = malloc(sizeof(label));
+    if (!lb) exit(1);
+    
+    lb->label = gtk_label_new("");
+    lb->text = g_strdup("Label");
+    lb->color = NULL;
+    lb->bg_color = NULL;
+    lb->font_family = NULL;
+    lb->style = NULL;
+    lb->position = NULL;
+    lb->width = -1;
+    lb->height = -1;
+    
+    gtk_label_set_text(GTK_LABEL(lb->label), lb->text);
+    
+    return lb;
+}
+
+void update_label(label *lb) {
+    if (!lb || !lb->label) return;
+    
+    if (lb->text) {
+        gtk_label_set_text(GTK_LABEL(lb->label), lb->text);
+    }
+    
+    if (lb->width > 0 && lb->height > 0) {
+        gtk_widget_set_size_request(lb->label, lb->width, lb->height);
+    }
+    
+    GString *css = g_string_new("label { ");
+    if (lb->color) {
+        g_string_append_printf(css, "color: %s; ", lb->color);
+    }
+    if (lb->bg_color) {
+        g_string_append_printf(css, "background-color: %s; ", lb->bg_color);
+    }
+    if (lb->font_family) {
+        g_string_append_printf(css, "font-family: '%s'; ", lb->font_family);
+    }
+    g_string_append(css, "}");
+    
+    apply_css(lb->label, css->str);
+    g_string_free(css, TRUE);
+    
+    if (lb->style) {
+        PangoAttrList *attrs = pango_attr_list_new();
+        if (strstr(lb->style, "bold")) {
+            pango_attr_list_insert(attrs, pango_attr_weight_new(PANGO_WEIGHT_BOLD));
+        }
+        if (strstr(lb->style, "italic")) {
+            pango_attr_list_insert(attrs, pango_attr_style_new(PANGO_STYLE_ITALIC));
+        }
+        if (strstr(lb->style, "underline")) {
+            pango_attr_list_insert(attrs, pango_attr_underline_new(PANGO_UNDERLINE_SINGLE));
+        }
+        gtk_label_set_attributes(GTK_LABEL(lb->label), attrs);
+        pango_attr_list_unref(attrs);
+    }
+    
+    if (lb->position) {
+        if (strcmp(lb->position, "left") == 0) {
+            gtk_label_set_xalign(GTK_LABEL(lb->label), 0.0);
+        } else if (strcmp(lb->position, "right") == 0) {
+            gtk_label_set_xalign(GTK_LABEL(lb->label), 1.0);
+        } else if (strcmp(lb->position, "center") == 0) {
+            gtk_label_set_xalign(GTK_LABEL(lb->label), 0.5);
+        }
+    }
+}
+
+/* ---------- Progress Bar Functions ---------- */
+
+progress_bar* create_progress_bar() {
+    progress_bar *pb = malloc(sizeof(progress_bar));
+    if (!pb) exit(1);
+    
+    pb->progress = gtk_progress_bar_new();
+    pb->fraction = 0.0;
+    pb->text = NULL;
+    pb->pulse_text = NULL;
+    pb->width = -1;
+    pb->height = -1;
+    pb->inverted = FALSE;
+    pb->orientation = GTK_ORIENTATION_HORIZONTAL;
+    pb->show_text = FALSE;
+    pb->is_pulsing = FALSE;
+    pb->pulse_interval = 100;
+    pb->pulse_timeout_id = 0;
+    
+    return pb;
+}
+
+static gboolean pulse_callback(gpointer data) {
+    progress_bar *pb = (progress_bar*)data;
+    if (pb && pb->is_pulsing && pb->progress) {
+        gtk_progress_bar_pulse(GTK_PROGRESS_BAR(pb->progress));
+        return TRUE;
+    }
+    return FALSE;
+}
+
+void update_progress_bar(progress_bar *pb) {
+    if (!pb || !pb->progress) return;
+    
+    gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(pb->progress), pb->fraction);
+    
+    if (pb->text) {
+        gtk_progress_bar_set_text(GTK_PROGRESS_BAR(pb->progress), pb->text);
+        gtk_progress_bar_set_show_text(GTK_PROGRESS_BAR(pb->progress), TRUE);
+    }
+    
+    if (pb->width > 0 && pb->height > 0) {
+        gtk_widget_set_size_request(pb->progress, pb->width, pb->height);
+    }
+    
+    gtk_progress_bar_set_inverted(GTK_PROGRESS_BAR(pb->progress), pb->inverted);
+    gtk_orientable_set_orientation(GTK_ORIENTABLE(pb->progress), pb->orientation);
+    gtk_progress_bar_set_show_text(GTK_PROGRESS_BAR(pb->progress), pb->show_text);
+}
+
+void start_progress_pulse(progress_bar *pb) {
+    if (!pb) return;
+    pb->is_pulsing = TRUE;
+    if (pb->pulse_timeout_id) {
+        g_source_remove(pb->pulse_timeout_id);
+    }
+    pb->pulse_timeout_id = g_timeout_add(pb->pulse_interval, pulse_callback, pb);
+}
+
+void stop_progress_pulse(progress_bar *pb) {
+    if (!pb) return;
+    pb->is_pulsing = FALSE;
+    if (pb->pulse_timeout_id) {
+        g_source_remove(pb->pulse_timeout_id);
+        pb->pulse_timeout_id = 0;
+    }
+}
+
+void set_progress_value(progress_bar *pb, double value) {
+    if (!pb) return;
+    pb->fraction = value < 0 ? 0 : (value > 1 ? 1 : value);
+    if (pb->progress) {
+        gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(pb->progress), pb->fraction);
+    }
+}
+
+/* ---------- Spinner Functions ---------- */
+
+spinner* create_spinner() {
+    spinner *spin = malloc(sizeof(spinner));
+    if (!spin) exit(1);
+    
+    spin->container = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5);
+    spin->spinner = gtk_spinner_new();
+    spin->label = gtk_label_new("");
+    spin->text = NULL;
+    spin->width = -1;
+    spin->height = -1;
+    spin->active = FALSE;
+    spin->spinning = FALSE;
+    
+    gtk_box_pack_start(GTK_BOX(spin->container), spin->spinner, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(spin->container), spin->label, FALSE, FALSE, 0);
+    gtk_widget_show_all(spin->container);
+    
+    return spin;
+}
+
+void update_spinner(spinner *spin) {
+    if (!spin) return;
+    
+    if (spin->text) {
+        gtk_label_set_text(GTK_LABEL(spin->label), spin->text);
+    }
+    
+    if (spin->width > 0 && spin->height > 0) {
+        gtk_widget_set_size_request(spin->container, spin->width, spin->height);
+    }
+    
+    if (spin->active && !spin->spinning) {
+        start_spinner(spin);
+    } else if (!spin->active && spin->spinning) {
+        stop_spinner(spin);
+    }
+}
+
+void start_spinner(spinner *spin) {
+    if (!spin || !spin->spinner) return;
+    spin->active = TRUE;
+    spin->spinning = TRUE;
+    gtk_spinner_start(GTK_SPINNER(spin->spinner));
+}
+
+void stop_spinner(spinner *spin) {
+    if (!spin || !spin->spinner) return;
+    spin->active = FALSE;
+    spin->spinning = FALSE;
+    gtk_spinner_stop(GTK_SPINNER(spin->spinner));
+}
+
+GtkWidget* get_spinner_widget(spinner *spin) {
+    return spin ? spin->container : NULL;
+}
+
+/* ---------- Image Functions ---------- */
+
+image* create_image() {
+    image *im = malloc(sizeof(image));
+    if (!im) exit(1);
+    
+    im->image = gtk_image_new();
+    im->file_name = NULL;
+    im->animation_file = NULL;
+    im->icon_name = NULL;
+    im->position = NULL;
+    im->border_color = NULL;
+    im->width = -1;
+    im->height = -1;
+    im->border_width = 0;
+    im->border_radius = 0;
+    im->pixel_size = -1;
+    im->click_callback = NULL;
+    im->callback_data = NULL;
+    
+    return im;
+}
+
+void update_image(image *im) {
+    if (!im || !im->image) return;
+    
+    if (im->file_name) {
+        GError *error = NULL;
+        GdkPixbuf *pixbuf = gdk_pixbuf_new_from_file(im->file_name, &error);
+        if (pixbuf) {
+            if (im->width > 0 && im->height > 0) {
+                GdkPixbuf *scaled = gdk_pixbuf_scale_simple(pixbuf, im->width, im->height, 
+                                                            GDK_INTERP_BILINEAR);
+                gtk_image_set_from_pixbuf(GTK_IMAGE(im->image), scaled);
+                g_object_unref(scaled);
+            } else {
+                gtk_image_set_from_pixbuf(GTK_IMAGE(im->image), pixbuf);
+            }
+            g_object_unref(pixbuf);
+        }
+    }
+    
+    if (im->width > 0 && im->height > 0) {
+        gtk_widget_set_size_request(im->image, im->width, im->height);
+    }
+    
+    if (im->border_width > 0 || im->border_radius > 0 || im->border_color) {
+        GString *css = g_string_new("image { ");
+        if (im->border_width > 0) {
+            g_string_append_printf(css, "border-width: %dpx; border-style: solid; ", im->border_width);
+        }
+        if (im->border_radius > 0) {
+            g_string_append_printf(css, "border-radius: %dpx; ", im->border_radius);
+        }
+        if (im->border_color) {
+            g_string_append_printf(css, "border-color: %s; ", im->border_color);
+        }
+        g_string_append(css, "}");
+        apply_css(im->image, css->str);
+        g_string_free(css, TRUE);
+    }
+    
+    if (im->position) {
+        if (strcmp(im->position, "left") == 0) {
+            gtk_widget_set_halign(im->image, GTK_ALIGN_START);
+        } else if (strcmp(im->position, "right") == 0) {
+            gtk_widget_set_halign(im->image, GTK_ALIGN_END);
+        } else if (strcmp(im->position, "center") == 0) {
+            gtk_widget_set_halign(im->image, GTK_ALIGN_CENTER);
+        }
+    }
+    
+    if (im->click_callback) {
+        g_signal_connect(im->image, "button-press-event", G_CALLBACK(im->click_callback), im->callback_data);
+    }
+}
+
+/* ---------- Entry Functions ---------- */
+
+entry* create_entry() {
+    entry *en = malloc(sizeof(entry));
+    if (!en) exit(1);
+    
+    en->entry = gtk_entry_new();
+    en->text = NULL;
+    en->placeholder_text = NULL;
+    en->bg_color = NULL;
+    en->color = NULL;
+    en->font_family = NULL;
+    en->label_style = NULL;
+    en->width = -1;
+    en->height = -1;
+    en->border_width = 0;
+    en->margin_top = en->margin_bottom = en->margin_left = en->margin_right = 0;
+    en->visibility = TRUE;
+    en->editable = TRUE;
+    en->has_frame = TRUE;
+    en->changed_callback = NULL;
+    en->callback_data = NULL;
+    
+    return en;
+}
+
+void update_entry(entry *en) {
+    if (!en || !en->entry) return;
+    
+    if (en->text) {
+        gtk_entry_set_text(GTK_ENTRY(en->entry), en->text);
+    }
+    
+    if (en->placeholder_text) {
+        gtk_entry_set_placeholder_text(GTK_ENTRY(en->entry), en->placeholder_text);
+    }
+    
+    if (en->width > 0 && en->height > 0) {
+        gtk_widget_set_size_request(en->entry, en->width, en->height);
+    }
+    
+    gtk_entry_set_visibility(GTK_ENTRY(en->entry), en->visibility);
+    gtk_editable_set_editable(GTK_EDITABLE(en->entry), en->editable);
+    gtk_entry_set_has_frame(GTK_ENTRY(en->entry), en->has_frame);
+    
+    GString *css = g_string_new("entry { ");
+    if (en->bg_color) {
+        g_string_append_printf(css, "background-color: %s; ", en->bg_color);
+    }
+    if (en->color) {
+        g_string_append_printf(css, "color: %s; ", en->color);
+    }
+    if (en->font_family) {
+        g_string_append_printf(css, "font-family: '%s'; ", en->font_family);
+    }
+    if (en->border_width > 0) {
+        g_string_append_printf(css, "border-width: %dpx; border-style: solid; ", en->border_width);
+    }
+    if (en->margin_top > 0 || en->margin_bottom > 0 || en->margin_left > 0 || en->margin_right > 0) {
+        g_string_append_printf(css, "margin-top: %dpx; margin-bottom: %dpx; ", 
+                               en->margin_top, en->margin_bottom);
+        g_string_append_printf(css, "margin-left: %dpx; margin-right: %dpx; ", 
+                               en->margin_left, en->margin_right);
+    }
+    g_string_append(css, "}");
+    apply_css(en->entry, css->str);
+    g_string_free(css, TRUE);
+    
+    if (en->changed_callback) {
+        g_signal_connect(en->entry, "changed", G_CALLBACK(en->changed_callback), en->callback_data);
+    }
+}
+
+char* get_entry_text(entry *en) {
+    if (!en || !en->entry) return NULL;
+    return (char*)gtk_entry_get_text(GTK_ENTRY(en->entry));
+}
+
+void set_entry_text(entry *en, const char *text) {
+    if (!en || !en->entry) return;
+    gtk_entry_set_text(GTK_ENTRY(en->entry), text);
+}
+
+/* ---------- Radio Button Functions ---------- */
+
+typedef struct RadioGroupNode {
+    char *group_id;
+    GSList *group;
+    struct RadioGroupNode *next;
+} RadioGroupNode;
+
+static RadioGroupNode *radio_groups = NULL;
+
+static GSList* get_or_create_radio_group(const char *group_id, GtkWidget *first_button) {
+    RadioGroupNode *current = radio_groups;
+    while (current) {
+        if (strcmp(current->group_id, group_id) == 0) {
+            return current->group;
+        }
+        current = current->next;
+    }
+    
+    RadioGroupNode *new_group = malloc(sizeof(RadioGroupNode));
+    new_group->group_id = g_strdup(group_id);
+    new_group->group = first_button ? gtk_radio_button_get_group(GTK_RADIO_BUTTON(first_button)) : NULL;
+    new_group->next = radio_groups;
+    radio_groups = new_group;
+    
+    return new_group->group;
+}
+
+static void add_to_radio_group(const char *group_id, GtkWidget *button) {
+    RadioGroupNode *current = radio_groups;
+    while (current) {
+        if (strcmp(current->group_id, group_id) == 0) {
+            if (current->group) {
+                gtk_radio_button_set_group(GTK_RADIO_BUTTON(button), current->group);
+                current->group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(button));
+            }
+            return;
+        }
+        current = current->next;
+    }
+}
+
+radio_button* create_radio_button(const char *group_id, const char *label) {
+    radio_button *rdb = malloc(sizeof(radio_button));
+    if (!rdb) exit(1);
+    
+    rdb->label = g_strdup(label);
+    rdb->group_id = g_strdup(group_id);
+    rdb->color = NULL;
+    rdb->bg_color = NULL;
+    rdb->width = -1;
+    rdb->height = -1;
+    rdb->position = NULL;
+    rdb->active = FALSE;
+    rdb->mode = TRUE;
+    rdb->toggled_callback = NULL;
+    rdb->callback_data = NULL;
+    
+    RadioGroupNode *existing = radio_groups;
+    while (existing) {
+        if (strcmp(existing->group_id, group_id) == 0) {
+            break;
+        }
+        existing = existing->next;
+    }
+    
+    if (!existing || !existing->group) {
+        rdb->radio_button = gtk_radio_button_new_with_label(NULL, label);
+        get_or_create_radio_group(group_id, rdb->radio_button);
+    } else {
+        rdb->radio_button = gtk_radio_button_new_with_label(existing->group, label);
+        existing->group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(rdb->radio_button));
+    }
+    
+    return rdb;
+}
+
+// Add to structures.c
+void cairo_ellipse(cairo_t *cr, double x, double y, double rx, double ry) {
+    cairo_save(cr);
+    cairo_translate(cr, x, y);
+    cairo_scale(cr, 1.0, ry / rx);
+    cairo_arc(cr, 0, 0, rx, 0, 2 * M_PI);
+    cairo_restore(cr);
+}
+
+void update_radio_button(radio_button *rdb) {
+    if (!rdb || !rdb->radio_button) return;
+    
+    if (rdb->label) {
+        gtk_button_set_label(GTK_BUTTON(rdb->radio_button), rdb->label);
+    }
+    
+    if (rdb->width > 0 && rdb->height > 0) {
+        gtk_widget_set_size_request(rdb->radio_button, rdb->width, rdb->height);
+    }
+    
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(rdb->radio_button), rdb->active);
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(rdb->radio_button), rdb->mode);
+    
+    if (rdb->position) {
+        if (strcmp(rdb->position, "left") == 0) {
+            gtk_widget_set_halign(rdb->radio_button, GTK_ALIGN_START);
+        } else if (strcmp(rdb->position, "right") == 0) {
+            gtk_widget_set_halign(rdb->radio_button, GTK_ALIGN_END);
+        } else if (strcmp(rdb->position, "center") == 0) {
+            gtk_widget_set_halign(rdb->radio_button, GTK_ALIGN_CENTER);
+        }
+    }
+    
+    GString *css = g_string_new("radio { ");
+    if (rdb->color) {
+        g_string_append_printf(css, "color: %s; ", rdb->color);
+    }
+    if (rdb->bg_color) {
+        g_string_append_printf(css, "background-color: %s; ", rdb->bg_color);
+    }
+    g_string_append(css, "}");
+    apply_css(rdb->radio_button, css->str);
+    g_string_free(css, TRUE);
+    
+    if (rdb->toggled_callback) {
+        g_signal_connect(rdb->radio_button, "toggled", 
+                        G_CALLBACK(rdb->toggled_callback), rdb->callback_data);
+    }
+}
+
+void set_radio_button_active(radio_button *rdb, gboolean active) {
+    if (!rdb) return;
+    rdb->active = active;
+    if (rdb->radio_button) {
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(rdb->radio_button), active);
+    }
+}
+
+gboolean is_radio_button_active(radio_button *rdb) {
+    if (!rdb || !rdb->radio_button) return FALSE;
+    return gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(rdb->radio_button));
+}
+
+/* ---------- Check Button Functions ---------- */
+
+check_button* create_check_button() {
+    check_button *chb = malloc(sizeof(check_button));
+    if (!chb) exit(1);
+    
+    chb->checkbutton = gtk_check_button_new();
+    chb->label = NULL;
+    chb->color = NULL;
+    chb->bg_color = NULL;
+    chb->font_family = NULL;
+    chb->label_style = NULL;
+    chb->width = -1;
+    chb->height = -1;
+    chb->position = NULL;
+    chb->active = FALSE;
+    chb->mode = TRUE;
+    chb->inconsistent = FALSE;
+    chb->draw_indicator = TRUE;
+    chb->toggled_callback = NULL;
+    chb->callback_data = NULL;
+    
+    return chb;
+}
+
+void update_check_button(check_button *chb) {
+    if (!chb || !chb->checkbutton) return;
+    
+    if (chb->label) {
+        gtk_button_set_label(GTK_BUTTON(chb->checkbutton), chb->label);
+    }
+    
+    if (chb->width > 0 && chb->height > 0) {
+        gtk_widget_set_size_request(chb->checkbutton, chb->width, chb->height);
+    }
+    
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chb->checkbutton), chb->active);
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(chb->checkbutton), chb->mode);
+    gtk_toggle_button_set_inconsistent(GTK_TOGGLE_BUTTON(chb->checkbutton), chb->inconsistent);
+    
+    if (chb->position) {
+        if (strcmp(chb->position, "left") == 0) {
+            gtk_widget_set_halign(chb->checkbutton, GTK_ALIGN_START);
+        } else if (strcmp(chb->position, "right") == 0) {
+            gtk_widget_set_halign(chb->checkbutton, GTK_ALIGN_END);
+        } else if (strcmp(chb->position, "center") == 0) {
+            gtk_widget_set_halign(chb->checkbutton, GTK_ALIGN_CENTER);
+        }
+    }
+    
+    GString *css = g_string_new("checkbutton { ");
+    if (chb->bg_color) {
+        g_string_append_printf(css, "background-color: %s; ", chb->bg_color);
+    }
+    g_string_append(css, "}");
+    apply_css(chb->checkbutton, css->str);
+    g_string_free(css, TRUE);
+    
+    if (chb->color) {
+        GtkWidget *label_widget = gtk_bin_get_child(GTK_BIN(chb->checkbutton));
+        if (label_widget && GTK_IS_LABEL(label_widget)) {
+            char css2[256];
+            snprintf(css2, sizeof(css2), "label { color: %s; }", chb->color);
+            apply_css(label_widget, css2);
+        }
+    }
+    
+    if (chb->font_family) {
+        GtkWidget *label_widget = gtk_bin_get_child(GTK_BIN(chb->checkbutton));
+        if (label_widget && GTK_IS_LABEL(label_widget)) {
+            char css2[256];
+            snprintf(css2, sizeof(css2), "label { font-family: '%s'; }", chb->font_family);
+            apply_css(label_widget, css2);
+        }
+    }
+    
+    if (chb->toggled_callback) {
+        g_signal_connect(chb->checkbutton, "toggled", 
+                        G_CALLBACK(chb->toggled_callback), chb->callback_data);
+    }
+}
+
+void set_check_button_active(check_button *chb, gboolean active) {
+    if (!chb) return;
+    chb->active = active;
+    if (chb->checkbutton) {
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chb->checkbutton), active);
+    }
+}
+
+gboolean is_check_button_active(check_button *chb) {
+    if (!chb || !chb->checkbutton) return FALSE;
+    return gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(chb->checkbutton));
+}
+
+/* ---------- Menu Functions ---------- */
+
+menu* create_horizontal_menu() {
+    menu *m = malloc(sizeof(menu));
+    if (!m) exit(1);
+    
+    m->menu_widget = gtk_menu_bar_new();
+    m->orientation = GTK_ORIENTATION_HORIZONTAL;
+    m->bg_color = NULL;
+    m->text_color = NULL;
+    m->item_spacing = 0;
+    
+    return m;
+}
+
+menu* create_vertical_menu() {
+    menu *m = malloc(sizeof(menu));
+    if (!m) exit(1);
+    
+    m->menu_widget = gtk_menu_new();
+    m->orientation = GTK_ORIENTATION_VERTICAL;
+    m->bg_color = NULL;
+    m->text_color = NULL;
+    m->item_spacing = 0;
+    
+    return m;
+}
+
+menu* create_submenu() {
+    return create_vertical_menu();
+}
+
+void add_menu_item(menu *m, const char *label, void (*callback)(GtkWidget*, gpointer), void *data) {
+    if (!m || !m->menu_widget) return;
+    
+    GtkWidget *item = gtk_menu_item_new_with_label(label);
+    g_signal_connect(item, "activate", G_CALLBACK(callback), data);
+    gtk_menu_shell_append(GTK_MENU_SHELL(m->menu_widget), item);
+    gtk_widget_show(item);
+}
+
+void add_menu_item_with_icon(menu *m, const char *label, const char *icon_name,
+                              void (*callback)(GtkWidget*, gpointer), void *data) {
+    if (!m || !m->menu_widget) return;
+    
+    GtkWidget *item = gtk_menu_item_new();
+    GtkWidget *hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5);
+    GtkWidget *icon = gtk_image_new_from_icon_name(icon_name, GTK_ICON_SIZE_MENU);
+    GtkWidget *lbl = gtk_label_new(label);
+    
+    gtk_box_pack_start(GTK_BOX(hbox), icon, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(hbox), lbl, FALSE, FALSE, 0);
+    gtk_widget_show_all(hbox);
+    gtk_container_add(GTK_CONTAINER(item), hbox);
+    
+    g_signal_connect(item, "activate", G_CALLBACK(callback), data);
+    gtk_menu_shell_append(GTK_MENU_SHELL(m->menu_widget), item);
+    gtk_widget_show(item);
+}
+
+void add_check_menu_item(menu *m, const char *label, gboolean active,
+                          void (*callback)(GtkWidget*, gpointer), void *data) {
+    if (!m || !m->menu_widget) return;
+    
+    GtkWidget *item = gtk_check_menu_item_new_with_label(label);
+    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), active);
+    g_signal_connect(item, "toggled", G_CALLBACK(callback), data);
+    gtk_menu_shell_append(GTK_MENU_SHELL(m->menu_widget), item);
+    gtk_widget_show(item);
+}
+
+void add_radio_menu_item(menu *m, const char *label, gboolean active,
+                          void (*callback)(GtkWidget*, gpointer), void *data) {
+    if (!m || !m->menu_widget) return;
+    
+    static GSList *radio_group = NULL;
+    GtkWidget *item = gtk_radio_menu_item_new_with_label(radio_group, label);
+    radio_group = gtk_radio_menu_item_get_group(GTK_RADIO_MENU_ITEM(item));
+    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), active);
+    g_signal_connect(item, "toggled", G_CALLBACK(callback), data);
+    gtk_menu_shell_append(GTK_MENU_SHELL(m->menu_widget), item);
+    gtk_widget_show(item);
+}
+
+void add_menu_separator(menu *m) {
+    if (!m || !m->menu_widget) return;
+    
+    GtkWidget *sep = gtk_separator_menu_item_new();
+    gtk_menu_shell_append(GTK_MENU_SHELL(m->menu_widget), sep);
+    gtk_widget_show(sep);
+}
+
+void add_submenu(menu *parent, const char *label, menu *submenu) {
+    if (!parent || !parent->menu_widget || !submenu || !submenu->menu_widget) return;
+    
+    GtkWidget *item = gtk_menu_item_new_with_label(label);
+    gtk_menu_item_set_submenu(GTK_MENU_ITEM(item), submenu->menu_widget);
+    gtk_menu_shell_append(GTK_MENU_SHELL(parent->menu_widget), item);
+    gtk_widget_show(item);
+}
+
+void add_submenu_with_icon(menu *parent, const char *label, const char *icon_name, menu *submenu) {
+    if (!parent || !parent->menu_widget || !submenu || !submenu->menu_widget) return;
+    
+    GtkWidget *item = gtk_menu_item_new();
+    GtkWidget *hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5);
+    GtkWidget *icon = gtk_image_new_from_icon_name(icon_name, GTK_ICON_SIZE_MENU);
+    GtkWidget *lbl = gtk_label_new(label);
+    
+    gtk_box_pack_start(GTK_BOX(hbox), icon, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(hbox), lbl, FALSE, FALSE, 0);
+    gtk_widget_show_all(hbox);
+    gtk_container_add(GTK_CONTAINER(item), hbox);
+    
+    gtk_menu_item_set_submenu(GTK_MENU_ITEM(item), submenu->menu_widget);
+    gtk_menu_shell_append(GTK_MENU_SHELL(parent->menu_widget), item);
+    gtk_widget_show(item);
+}
+
+menu_button* create_menu_button(const char *label) {
+    menu_button *mb = malloc(sizeof(menu_button));
+    if (!mb) exit(1);
+    
+    mb->button = gtk_button_new_with_label(label);
+    mb->label = g_strdup(label);
+    mb->icon_name = NULL;
+    mb->main_menu = NULL;
+    mb->width = -1;
+    mb->height = -1;
+    mb->bg_color = NULL;
+    mb->text_color = NULL;
+    mb->position = NULL;
+    
+    return mb;
+}
+
+menu_button* create_menu_button_with_icon(const char *icon_name) {
+    menu_button *mb = malloc(sizeof(menu_button));
+    if (!mb) exit(1);
+    
+    mb->button = gtk_button_new();
+    mb->label = NULL;
+    mb->icon_name = g_strdup(icon_name);
+    mb->main_menu = NULL;
+    mb->width = -1;
+    mb->height = -1;
+    mb->bg_color = NULL;
+    mb->text_color = NULL;
+    mb->position = NULL;
+    
+    GtkWidget *icon = gtk_image_new_from_icon_name(icon_name, GTK_ICON_SIZE_BUTTON);
+    gtk_container_add(GTK_CONTAINER(mb->button), icon);
+    gtk_widget_show(icon);
+    
+    return mb;
+}
+
+void set_menu_button_menu(menu_button *mb, menu *m) {
+    if (!mb || !mb->button || !m || !m->menu_widget) return;
+    
+    mb->main_menu = m;
+    
+    GtkWidget *menu_button = gtk_menu_button_new();
+    
+    if (GTK_IS_MENU(m->menu_widget)) {
+        gtk_menu_button_set_popup(GTK_MENU_BUTTON(menu_button), m->menu_widget);
+    }
+    
+    if (mb->label) {
+        gtk_button_set_label(GTK_BUTTON(menu_button), mb->label);
+    }
+    if (mb->icon_name) {
+        GtkWidget *icon = gtk_image_new_from_icon_name(mb->icon_name, GTK_ICON_SIZE_BUTTON);
+        gtk_container_add(GTK_CONTAINER(menu_button), icon);
+        gtk_widget_show(icon);
+    }
+    
+    if (mb->bg_color) {
+        char css[256];
+        snprintf(css, sizeof(css), "button { background-color: %s; }", mb->bg_color);
+        apply_css(menu_button, css);
+    }
+    
+    GtkWidget *old_button = mb->button;
+    mb->button = menu_button;
+    gtk_widget_destroy(old_button);
+}
+
+void update_menu_button(menu_button *mb) {
+    if (!mb || !mb->button) return;
+    
+    if (mb->width > 0 && mb->height > 0) {
+        gtk_widget_set_size_request(mb->button, mb->width, mb->height);
+    }
+    
+    GString *css = g_string_new("button { ");
+    if (mb->bg_color) {
+        g_string_append_printf(css, "background-color: %s; ", mb->bg_color);
+    }
+    if (mb->text_color) {
+        g_string_append_printf(css, "color: %s; ", mb->text_color);
+    }
+    g_string_append(css, "}");
+    apply_css(mb->button, css->str);
+    g_string_free(css, TRUE);
+    
+    if (mb->position) {
+        if (strcmp(mb->position, "left") == 0) {
+            gtk_widget_set_halign(mb->button, GTK_ALIGN_START);
+        } else if (strcmp(mb->position, "right") == 0) {
+            gtk_widget_set_halign(mb->button, GTK_ALIGN_END);
+        } else if (strcmp(mb->position, "center") == 0) {
+            gtk_widget_set_halign(mb->button, GTK_ALIGN_CENTER);
+        }
+    }
+}
+
+void add_menu_button_to_box(box *bx, menu_button *mb) {
+    if (!bx || !mb) return;
+    add_to_box(bx, mb->button);
+}
+
+void free_menu(menu *m) {
+    if (m) {
+        if (m->menu_widget) {
+            gtk_widget_destroy(m->menu_widget);
+        }
+        if (m->bg_color) g_free(m->bg_color);
+        if (m->text_color) g_free(m->text_color);
+        free(m);
+    }
+}
+
+void free_menu_button(menu_button *mb) {
+    if (mb) {
+        if (mb->button) gtk_widget_destroy(mb->button);
+        if (mb->label) g_free(mb->label);
+        if (mb->icon_name) g_free(mb->icon_name);
+        if (mb->bg_color) g_free(mb->bg_color);
+        if (mb->text_color) g_free(mb->text_color);
+        if (mb->position) g_free(mb->position);
+        free(mb);
+    }
+}
+
+/* ---------- Box Functions ---------- */
+
+box* create_box(GtkOrientation orientation, int spacing, gboolean homogeneous) {
+    box *bx = malloc(sizeof(box));
+    if (!bx) exit(1);
+    
+    bx->box = gtk_box_new(orientation, spacing);
+    bx->orientation = orientation;
+    bx->spacing = spacing;
+    bx->width = -1;
+    bx->height = -1;
+    bx->border_width = 0;
+    bx->bg_color = NULL;
+    bx->margin_top = bx->margin_bottom = bx->margin_left = bx->margin_right = 0;
+    bx->homogeneous = homogeneous;
+    bx->expand = FALSE;
+    bx->fill = TRUE;
+    bx->padding = 0;
+    
+    gtk_box_set_homogeneous(GTK_BOX(bx->box), homogeneous);
+    
+    return bx;
+}
+
+box* create_hbox(int spacing, gboolean homogeneous) {
+    return create_box(GTK_ORIENTATION_HORIZONTAL, spacing, homogeneous);
+}
+
+box* create_vbox(int spacing, gboolean homogeneous) {
+    return create_box(GTK_ORIENTATION_VERTICAL, spacing, homogeneous);
+}
+
+void update_box(box *bx) {
+    if (!bx || !bx->box) return;
+    
+    if (bx->width > 0 && bx->height > 0) {
+        gtk_widget_set_size_request(bx->box, bx->width, bx->height);
+    }
+    
+    gtk_container_set_border_width(GTK_CONTAINER(bx->box), bx->border_width);
+    gtk_box_set_spacing(GTK_BOX(bx->box), bx->spacing);
+    gtk_box_set_homogeneous(GTK_BOX(bx->box), bx->homogeneous);
+    
+    if (bx->bg_color) {
+        char css[256];
+        snprintf(css, sizeof(css), "box { background-color: %s; }", bx->bg_color);
+        apply_css(bx->box, css);
+    }
+    
+    if (bx->margin_top > 0 || bx->margin_bottom > 0 || bx->margin_left > 0 || bx->margin_right > 0) {
+        char css[256];
+        snprintf(css, sizeof(css), 
+                 "box { margin-top: %dpx; margin-bottom: %dpx; margin-left: %dpx; margin-right: %dpx; }",
+                 bx->margin_top, bx->margin_bottom, bx->margin_left, bx->margin_right);
+        apply_css(bx->box, css);
+    }
+}
+
+void add_to_box(box *bx, GtkWidget *widget) {
+    if (!bx || !bx->box || !widget) return;
+    gtk_box_pack_start(GTK_BOX(bx->box), widget, bx->expand, bx->fill, bx->padding);
+    gtk_widget_show(widget);
+}
+
+void add_to_box_with_properties(box *bx, GtkWidget *widget, gboolean expand, gboolean fill, guint padding) {
+    if (!bx || !bx->box || !widget) return;
+    gtk_box_pack_start(GTK_BOX(bx->box), widget, expand, fill, padding);
+    gtk_widget_show(widget);
+}
+
+void clear_box(box *bx) {
+    if (!bx || !bx->box) return;
+    GList *children = gtk_container_get_children(GTK_CONTAINER(bx->box));
+    for (GList *iter = children; iter != NULL; iter = iter->next) {
+        gtk_widget_destroy(GTK_WIDGET(iter->data));
+    }
+    g_list_free(children);
+}
+
+GtkWidget* get_box_widget(box *bx) {
+    return bx ? bx->box : NULL;
+}
+
+/* ---------- Container Addition Functions ---------- */
+
+void add_to_window(window *wn, GtkWidget *widget) {
+    if (wn && wn->win && widget) {
+        gtk_container_add(GTK_CONTAINER(wn->win), widget);
+    }
+}
+
+void add_to_header_bar_start(header_bar *hdb, GtkWidget *widget) {
+    if (hdb && hdb->header_bar && widget) {
+        gtk_header_bar_pack_start(GTK_HEADER_BAR(hdb->header_bar), widget);
+    }
+}
+
+void add_to_header_bar_end(header_bar *hdb, GtkWidget *widget) {
+    if (hdb && hdb->header_bar && widget) {
+        gtk_header_bar_pack_end(GTK_HEADER_BAR(hdb->header_bar), widget);
+    }
+}
+</file>
+
+<file path="structures.h">
+#ifndef STRUCTURES_H
+#define STRUCTURES_H
+
+#include<gtk/gtk.h>
+#include<string.h>
+#include<stdio.h>
+#include<stdlib.h>
+
+void ProgramStart();
+void ProgramEnd();
+void MainStart();
+
+// Global CSS provider for consistent styling
+extern GtkCssProvider *global_css_provider;
+
+// Helper function to apply CSS to a widget
+void apply_css(GtkWidget *widget, const char *css);
+
+// Helper function to update widget properties
+void refresh_widget(GtkWidget *widget);
+
+/*
+--------- Gestion des fenetres ---------
+*/
+typedef struct win {
+    GtkWidget *win;
+    char *title;
+    char *icon_path;
+    char *bg_image;
+    char *bg_color;
+    int width;
+    int height;
+    gboolean resizable;
+    gboolean modal;
+    double opacity;
+    gboolean fullscreen;
+    gboolean keep_below;
+    GtkWindowType type_win;
+    GtkWidget *drawing_area;
+    GtkCssProvider *css_provider;
+} window;
+
+window* create_window();
+void update_window(window *wn);
+void display_window(window *wn);
+void close_window(window *wn);
+
+/*
+--------- Gestion des header bars ---------
+*/
+typedef struct hdb{
+    GtkWidget *header_bar;
+    char *title;
+    char *sub_title;
+    char *title_style;
+    char *icon_path;
+    int width;
+    int height;
+    gboolean close_button_show;
+    char *decoration_layout;
+} header_bar;
+
+header_bar* create_header_bar();
+void update_header_bar(header_bar *hdb);
+void display_header_bar(header_bar *hdb);
+void cairo_ellipse(cairo_t *cr, double x, double y, double rx, double ry);
+/*
+---------- Gestion Buttons ----------
+*/
+typedef struct btn
+{
+    GtkWidget *button;
+    char *label;
+    char *bg_image;
+    char *bg_color;
+    char *label_style;
+    int width;
+    int height;
+    void (*click_callback)(GtkWidget*, gpointer);
+    void *callback_data;
+} button;
+
+button* create_button();
+void update_button(button *btn);
+
+/*
+---------- Gestion Labels ----------
+*/
+typedef struct lb{
+    GtkWidget *label;
+    char *text;
+    char *color;
+    char *bg_color;
+    char *font_family;
+    char *style;
+    char *position;
+    int width;
+    int height;
+} label;
+
+label* create_label();
+void update_label(label *lb);
+
+/*
+---------- Gestion Progress Bars ----------
+*/
+typedef struct prog{
+    GtkWidget *progress;
+    double fraction;
+    char *text;
+    char *pulse_text;
+    int width;
+    int height;
+    gboolean inverted;
+    GtkOrientation orientation;
+    gboolean show_text;
+    gboolean is_pulsing;
+    guint pulse_interval;
+    guint pulse_timeout_id;
+} progress_bar;
+
+progress_bar* create_progress_bar();
+void update_progress_bar(progress_bar *pb);
+void start_progress_pulse(progress_bar *pb);
+void stop_progress_pulse(progress_bar *pb);
+void set_progress_value(progress_bar *pb, double value);
+
+/*
+---------- Gestion Spinner ----------
+*/
+typedef struct spin {
+    GtkWidget *container;
+    GtkWidget *spinner;
+    GtkWidget *label;
+    char *text;
+    int width;
+    int height;
+    gboolean active;
+    gboolean spinning;
+} spinner;
+
+spinner* create_spinner();
+void update_spinner(spinner *spin);
+void start_spinner(spinner *spin);
+void stop_spinner(spinner *spin);
+GtkWidget* get_spinner_widget(spinner *spin);
+
+/*
+---------- Gestion Image ----------
+*/
+typedef struct im{
+    GtkWidget *image;
+    char *file_name;
+    char *animation_file;
+    char *icon_name;
+    char *position;
+    char *border_color;
+    int width;
+    int height;
+    int border_width;
+    int border_radius;
+    int pixel_size;
+    void (*click_callback)(GtkWidget*, gpointer);
+    void *callback_data;
+} image;
+
+image* create_image();
+void update_image(image *im);
+
+/*
+---------- Gestion Entry ----------
+*/
+typedef struct entry {
+    GtkWidget *entry;
+    char *text;
+    char *placeholder_text;
+    char *bg_color;
+    char *color;
+    char *font_family;
+    char *label_style;
+    int width;
+    int height;
+    int border_width;
+    int margin_top, margin_bottom, margin_left, margin_right;
+    gboolean visibility;
+    gboolean editable;
+    gboolean has_frame;
+    void (*changed_callback)(GtkWidget*, gpointer);
+    void *callback_data;
+} entry;
+
+entry* create_entry();
+void update_entry(entry *en);
+char* get_entry_text(entry *en);
+void set_entry_text(entry *en, const char *text);
+
+/*
+---------- Gestion Radio Button ----------
+*/
+typedef struct radbtn {
+    GtkWidget *radio_button;
+    char *label;
+    char *group_id;
+    char *color;
+    char *bg_color;
+    int width;
+    int height;
+    char *position;
+    gboolean active;
+    gboolean mode;
+    void (*toggled_callback)(GtkWidget*, gpointer);
+    void *callback_data;
+} radio_button;
+
+radio_button* create_radio_button(const char *group_id, const char *label);
+void update_radio_button(radio_button *rdb);
+void set_radio_button_active(radio_button *rdb, gboolean active);
+gboolean is_radio_button_active(radio_button *rdb);
+
+/*
+---------- Gestion Check Button ----------
+*/
+typedef struct chb {
+    GtkWidget *checkbutton;
+    char *label;
+    char *color;
+    char *bg_color;
+    char *font_family;
+    char *label_style;
+    int width;
+    int height;
+    char *position;
+    gboolean active;
+    gboolean mode;
+    gboolean inconsistent;
+    gboolean draw_indicator;
+    void (*toggled_callback)(GtkWidget*, gpointer);
+    void *callback_data;
+} check_button;
+
+check_button* create_check_button();
+void update_check_button(check_button *chb);
+void set_check_button_active(check_button *chb, gboolean active);
+gboolean is_check_button_active(check_button *chb);
+
+
+/*
+---------- Gestion Box ----------
+*/
+typedef struct bx {
+    GtkWidget *box;
+    GtkOrientation orientation;
+    int spacing;
+    int width;
+    int height;
+    int border_width;
+    char *bg_color;
+    int margin_top, margin_bottom, margin_left, margin_right;
+    gboolean homogeneous;
+    gboolean expand;
+    gboolean fill;
+    guint padding;
+} box;
+
+box* create_box(GtkOrientation orientation, int spacing, gboolean homogeneous);
+box* create_hbox(int spacing, gboolean homogeneous);
+box* create_vbox(int spacing, gboolean homogeneous);
+void update_box(box *bx);
+void add_to_box(box *bx, GtkWidget *widget);
+void add_to_box_with_properties(box *bx, GtkWidget *widget, gboolean expand, gboolean fill, guint padding);
+void clear_box(box *bx);
+GtkWidget* get_box_widget(box *bx);
+
+
+/*
+---------- Gestion Menu and Submenu ----------
+*/
+typedef struct menu {
+    GtkWidget *menu_widget;
+    GtkOrientation orientation;
+    char *bg_color;
+    char *text_color;
+    int item_spacing;
+} menu;
+
+typedef struct menu_button {
+    GtkWidget *button;
+    char *label;
+    char *icon_name;
+    menu *main_menu;
+    int width;
+    int height;
+    char *bg_color;
+    char *text_color;
+    char *position;
+} menu_button;
+
+// Menu creation functions
+menu* create_horizontal_menu();
+menu* create_vertical_menu();
+menu* create_submenu();
+
+// Menu item functions
+void add_menu_item(menu *m, const char *label, void (*callback)(GtkWidget*, gpointer), void *data);
+void add_menu_item_with_icon(menu *m, const char *label, const char *icon_name, 
+                              void (*callback)(GtkWidget*, gpointer), void *data);
+void add_check_menu_item(menu *m, const char *label, gboolean active,
+                          void (*callback)(GtkWidget*, gpointer), void *data);
+void add_radio_menu_item(menu *m, const char *label, gboolean active,
+                          void (*callback)(GtkWidget*, gpointer), void *data);
+void add_menu_separator(menu *m);
+void add_submenu(menu *parent, const char *label, menu *submenu);
+void add_submenu_with_icon(menu *parent, const char *label, const char *icon_name, menu *submenu);
+
+// Menu button functions
+menu_button* create_menu_button(const char *label);
+menu_button* create_menu_button_with_icon(const char *icon_name);
+void set_menu_button_menu(menu_button *mb, menu *m);
+void update_menu_button(menu_button *mb);
+void add_menu_button_to_box(box *bx, menu_button *mb);
+
+// Helper functions
+void free_menu(menu *m);
+void free_menu_button(menu_button *mb);
+
+
+/*
+--------- Container Addition Functions ---------
+*/
+void add_to_window(window *wn, GtkWidget *widget);
+void add_to_header_bar_start(header_bar *hdb, GtkWidget *widget);
+void add_to_header_bar_end(header_bar *hdb, GtkWidget *widget);
+
+
+// Convenience macros
+#define ADD_TO_WINDOW(win, widget) add_to_window(win, (widget))
+#define ADD_TO_HEADER_START(hdb, widget) add_to_header_bar_start(hdb, (widget))
+#define ADD_TO_HEADER_END(hdb, widget) add_to_header_bar_end(hdb, (widget))
+
+
+#endif
+</file>
+
+</files>
