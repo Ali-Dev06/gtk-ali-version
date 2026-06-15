@@ -2600,7 +2600,7 @@ void create_aquarium_window(void)
 
     g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
     gtk_widget_show_all(window);
-    
+
     MainStart();
     cleanup_aquarium();
 }

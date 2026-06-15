@@ -9,6 +9,20 @@
 GtkCssProvider *global_css_provider = NULL;
 
 void ProgramStart(){
+    /* Under WSLg the Wayland GDK backend throws a fatal protocol error
+       (Wayland error 71 / EPROTO) when a window is maximized, which tears
+       down the display connection and makes the window "close" when the
+       title-bar maximize button is clicked. WSLg also exposes an Xwayland
+       (X11) display that handles maximize correctly, so force the X11 backend
+       when we detect we are running inside WSL. Native Linux is left alone. */
+    if (g_getenv("WSL_DISTRO_NAME") || g_getenv("WSL_INTEROP")) {
+        gdk_set_allowed_backends("x11");
+        /* Xwayland under WSLg has no default X cursor theme, so the pointer
+           goes invisible over the window. Point it at an installed theme.
+           overwrite=FALSE so an explicit user setting still wins. */
+        g_setenv("XCURSOR_THEME", "Adwaita", FALSE);
+        g_setenv("XCURSOR_SIZE", "24", FALSE);
+    }
     gtk_init(NULL, NULL);
     global_css_provider = gtk_css_provider_new();
 }

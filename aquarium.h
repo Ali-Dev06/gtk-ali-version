@@ -5,8 +5,6 @@
 #include <math.h>
 #include <time.h>
 #include <gdk/gdk.h>
-// Add to aquarium.h after includes
-#include <json-c/json.h>
 
 // Add these function declarations
 void save_aquarium_session(const char *filename);

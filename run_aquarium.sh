@@ -15,5 +15,14 @@ unset SNAP
 export LC_ALL=C.UTF-8
 export DISPLAY="${DISPLAY:-:0}"
 
+# Force the X11 (Xwayland) backend: WSLg's Wayland backend crashes the window
+# with a protocol error (Wayland error 71) when it is maximized.
+export GDK_BACKEND=x11
+
+# Xwayland under WSLg has no default cursor theme, so the pointer goes invisible
+# over the window. Point it at an installed theme.
+export XCURSOR_THEME=Adwaita
+export XCURSOR_SIZE=24
+
 # Run the aquarium binary
 exec "$(dirname "$0")/aquarium" "$@"
