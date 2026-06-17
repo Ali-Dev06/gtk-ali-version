@@ -1,6 +1,7 @@
 // aquarium.c pas JSON
 #include "aquarium.h"
 #include "fish_catalog.h"
+#include "button_manager.h"
 
 Aquarium *g_aquarium = NULL;
 
@@ -2491,6 +2492,59 @@ void on_clear_simulation(GtkWidget *widget, gpointer data)
     gtk_widget_destroy(dialog);
 }
 
+/* Same as on_clear_simulation but without the confirmation dialog.
+ * Used by the dynamic-button module (Clear All / New Aquarium actions). */
+void on_clear_all_no_confirm(void)
+{
+    Fish *current = g_aquarium->fish_list;
+    while (current)
+    {
+        Fish *next = current->next;
+        g_free(current->species);
+        if (current->image_path)  g_free(current->image_path);
+        if (current->image_left)  g_object_unref(current->image_left);
+        if (current->image_right) g_object_unref(current->image_right);
+        g_free(current);
+        current = next;
+    }
+
+    Group *group = g_aquarium->group_list;
+    while (group)
+    {
+        Group *next = group->next;
+        g_free(group->name);
+        free(group);
+        group = next;
+    }
+
+    g_aquarium->fish_list = NULL;
+    g_aquarium->group_list = NULL;
+    g_aquarium->selected_fish = NULL;
+    g_aquarium->show_selected_highlight = 0;
+    g_aquarium->next_fish_id = 1;
+    g_aquarium->next_group_id = 1;
+    g_aquarium->total_fish_created = 0;
+    g_aquarium->total_fish_dead = 0;
+    g_aquarium->total_eats = 0;
+
+    update_ui_info();
+    if (g_aquarium->drawing_area)
+        gtk_widget_queue_draw(g_aquarium->drawing_area);
+}
+
+/* Force a visible cursor on a widget's GdkWindow. Xwayland/WSLg otherwise
+ * shows no pointer over a freshly-realized window. Connect to "realize". */
+void ensure_visible_cursor(GtkWidget *w, gpointer data)
+{
+    (void)data;
+    GdkWindow *gw = gtk_widget_get_window(w);
+    if (!gw) return;
+    GdkDisplay *disp = gtk_widget_get_display(w);
+    GdkCursor *cur = gdk_cursor_new_from_name(disp, "default");
+    if (!cur) cur = gdk_cursor_new_for_display(disp, GDK_LEFT_PTR);
+    if (cur) { gdk_window_set_cursor(gw, cur); g_object_unref(cur); }
+}
+
 gboolean on_mouse_click(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
     (void)widget;
@@ -3080,6 +3134,137 @@ static void on_quick_add_clicked(GtkWidget *btn, gpointer data)
     gtk_widget_show_all(win); /* non-modal: stays open so you can add several */
 }
 
+/* ==========================================================================
+ *  Sidebar quick-action buttons (from EXAM PREP.md — PART 4 + drills)
+ *  Each reuses the existing engine functions; nothing here bypasses the
+ *  mark-then-sweep deletion or the reproduction cap.
+ * ========================================================================== */
+
+/* #7 Pause / resume */
+static void on_sb_pause_toggle(GtkWidget *btn, gpointer data) {
+    (void)btn; (void)data;
+    g_aquarium->paused = !g_aquarium->paused;
+    show_message(g_aquarium->paused ? "⏸️ Paused" : "▶️ Running");
+}
+
+/* #10 Heal all fish */
+static void on_sb_heal_all(GtkWidget *btn, gpointer data) {
+    (void)btn; (void)data;
+    int n = 0;
+    for (Fish *f = g_aquarium->fish_list; f; f = f->next) {
+        if (!f->is_alive) continue;
+        f->health = 100.0f; f->hunger = 0.0f; f->energy = 100.0f; n++;
+    }
+    update_ui_info();
+    gtk_widget_queue_draw(g_aquarium->drawing_area);
+    char m[64]; g_snprintf(m, sizeof(m), "💚 Healed %d fish", n);
+    show_message(m);
+}
+
+/* #9 Speed up all fish */
+static void on_sb_speed_up(GtkWidget *btn, gpointer data) {
+    (void)btn; (void)data;
+    for (Fish *f = g_aquarium->fish_list; f; f = f->next) {
+        if (!f->is_alive) continue;
+        f->base_speed *= 1.25f;
+        f->speed = f->base_speed;
+    }
+    show_message("⚡ Fish sped up");
+}
+
+/* #9 Slow down all fish */
+static void on_sb_slow_down(GtkWidget *btn, gpointer data) {
+    (void)btn; (void)data;
+    for (Fish *f = g_aquarium->fish_list; f; f = f->next) {
+        if (!f->is_alive) continue;
+        f->base_speed *= 0.8f;
+        f->speed = f->base_speed;
+    }
+    show_message("🐌 Fish slowed down");
+}
+
+/* #8 Put every fish into one big group */
+static void on_sb_group_all(GtkWidget *btn, gpointer data) {
+    (void)btn; (void)data;
+    Fish *leader = NULL; Group *all = NULL;
+    for (Fish *f = g_aquarium->fish_list; f; f = f->next) {
+        if (!f->is_alive) continue;
+        if (!leader) { leader = f; all = create_group("All Fish", leader); }
+        else if (all) add_fish_to_group(all, f);
+    }
+    update_ui_info();
+    gtk_widget_queue_draw(g_aquarium->drawing_area);
+    show_message(all ? "🫧 Grouped all fish together" : "⚠️ No fish to group");
+}
+
+/* #6 Count fish of the selected fish's species */
+static void on_sb_count_species(GtkWidget *btn, gpointer data) {
+    (void)btn; (void)data;
+    Fish *sel = g_aquarium->selected_fish;
+    if (!sel || !sel->species) { show_message("⚠️ Select a fish first"); return; }
+    int n = 0;
+    for (Fish *f = g_aquarium->fish_list; f; f = f->next)
+        if (f->is_alive && g_strcmp0(f->species, sel->species) == 0) n++;
+    char m[96]; g_snprintf(m, sizeof(m), "🔢 %s in tank: %d", sel->species, n);
+    show_message(m);
+}
+
+/* #5 Delete all fish of the selected fish's species */
+static void on_sb_delete_species(GtkWidget *btn, gpointer data) {
+    (void)btn; (void)data;
+    Fish *sel = g_aquarium->selected_fish;
+    if (!sel || !sel->species) { show_message("⚠️ Select a fish first"); return; }
+    char species[128];
+    g_strlcpy(species, sel->species, sizeof(species)); /* copy: sel may be swept */
+    int n = 0;
+    for (Fish *f = g_aquarium->fish_list; f; f = f->next)
+        if (f->is_alive && g_strcmp0(f->species, species) == 0) { fish_die(f); n++; }
+    update_ui_info();
+    gtk_widget_queue_draw(g_aquarium->drawing_area);
+    char m[96]; g_snprintf(m, sizeof(m), "❌ Removed %d %s", n, species);
+    show_message(m);
+}
+
+/* drill 2: count predators */
+static void on_sb_count_predators(GtkWidget *btn, gpointer data) {
+    (void)btn; (void)data;
+    int n = 0;
+    for (Fish *f = g_aquarium->fish_list; f; f = f->next)
+        if (f->is_alive && f->type == TYPE_PREDATOR) n++;
+    char m[64]; g_snprintf(m, sizeof(m), "🦈 Predators: %d", n);
+    show_message(m);
+}
+
+/* drill 1: heal the oldest fish to full health */
+static void on_sb_heal_oldest(GtkWidget *btn, gpointer data) {
+    (void)btn; (void)data;
+    Fish *oldest = NULL;
+    for (Fish *f = g_aquarium->fish_list; f; f = f->next) {
+        if (!f->is_alive) continue;
+        if (oldest == NULL || f->age > oldest->age) oldest = f;
+    }
+    if (!oldest) { show_message("⚠️ No fish in the tank"); return; }
+    oldest->health = 100.0f; oldest->hunger = 0.0f; oldest->energy = 100.0f;
+    update_ui_info();
+    gtk_widget_queue_draw(g_aquarium->drawing_area);
+    char m[96]; g_snprintf(m, sizeof(m), "⭐ Healed the oldest fish (%s)", oldest->species);
+    show_message(m);
+}
+
+/* drill 3: feed only the hungry fish (hunger > 70 -> 0) */
+static void on_sb_feed_hungry(GtkWidget *btn, gpointer data) {
+    (void)btn; (void)data;
+    int n = 0;
+    for (Fish *f = g_aquarium->fish_list; f; f = f->next) {
+        if (!f->is_alive) continue;
+        if (f->hunger > 70.0f) { f->hunger = 0.0f; n++; }
+    }
+    update_ui_info();
+    gtk_widget_queue_draw(g_aquarium->drawing_area);
+    char m[64]; g_snprintf(m, sizeof(m), "🍴 Fed %d hungry fish", n);
+    show_message(m);
+}
+
 void create_aquarium_window(void)
 {
     ProgramStart();
@@ -3117,6 +3302,36 @@ void create_aquarium_window(void)
         gtk_widget_set_tooltip_text(quick_btn, "Open the fish gallery to add fish quickly");
         g_signal_connect(quick_btn, "clicked", G_CALLBACK(on_quick_add_clicked), window);
         gtk_box_pack_start(GTK_BOX(sidebar), quick_btn, FALSE, FALSE, 0);
+
+        /* ---- Quick-action buttons (EXAM PREP.md: PART 4 + drills) ----
+         * Packed into a scrollable column so the sidebar stays usable. */
+        {
+            GtkWidget *qa_scroll = gtk_scrolled_window_new(NULL, NULL);
+            gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(qa_scroll),
+                GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
+            GtkWidget *qa = gtk_box_new(GTK_ORIENTATION_VERTICAL, 6);
+            gtk_container_add(GTK_CONTAINER(qa_scroll), qa);
+
+            struct { const char *label; const char *tip; GCallback cb; } acts[] = {
+                { "⏸️ Pause",          "Pause / resume the simulation",        G_CALLBACK(on_sb_pause_toggle) },
+                { "💚 Heal All",       "Restore full health to every fish",    G_CALLBACK(on_sb_heal_all) },
+                { "⚡ Speed Up",       "Make every fish faster",               G_CALLBACK(on_sb_speed_up) },
+                { "🐌 Slow Down",      "Make every fish slower",               G_CALLBACK(on_sb_slow_down) },
+                { "🫧 Group All",      "Put every fish into one group",        G_CALLBACK(on_sb_group_all) },
+                { "🔢 Count Species",  "Count fish of the selected species",   G_CALLBACK(on_sb_count_species) },
+                { "❌ Delete Species", "Delete all fish of the selected species", G_CALLBACK(on_sb_delete_species) },
+                { "🦈 Count Predators","Count predators in the tank",          G_CALLBACK(on_sb_count_predators) },
+                { "⭐ Heal Oldest",    "Heal the oldest fish to full health",  G_CALLBACK(on_sb_heal_oldest) },
+                { "🍴 Feed Hungry",    "Feed only the hungry fish",            G_CALLBACK(on_sb_feed_hungry) },
+            };
+            for (guint i = 0; i < G_N_ELEMENTS(acts); i++) {
+                GtkWidget *b = gtk_button_new_with_label(acts[i].label);
+                gtk_widget_set_tooltip_text(b, acts[i].tip);
+                g_signal_connect(b, "clicked", acts[i].cb, NULL);
+                gtk_box_pack_start(GTK_BOX(qa), b, FALSE, FALSE, 0);
+            }
+            gtk_box_pack_start(GTK_BOX(sidebar), qa_scroll, TRUE, TRUE, 0);
+        }
 
         /* pane 1: sidebar — resize=FALSE (keeps its size when window resizes),
          * shrink=FALSE (can't be dragged below its minimum). */
@@ -3191,6 +3406,44 @@ void create_aquarium_window(void)
 
     gtk_box_pack_start(GTK_BOX(main_vbox), toolbar, FALSE, FALSE, 0);
 
+    /* ---- Dynamic "Custom Buttons" panel (user-created action buttons) ---- */
+    {
+        GtkWidget *dyn_frame = gtk_frame_new(NULL);
+        GtkWidget *dyn_frame_label = gtk_label_new(NULL);
+        gtk_label_set_markup(GTK_LABEL(dyn_frame_label),
+            "<span size='small' weight='bold'>⚙ Custom Buttons</span>");
+        gtk_frame_set_label_widget(GTK_FRAME(dyn_frame), dyn_frame_label);
+        gtk_widget_set_margin_start(dyn_frame, 4);
+        gtk_widget_set_margin_end(dyn_frame, 4);
+
+        GtkWidget *dyn_outer = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 4);
+        gtk_container_set_border_width(GTK_CONTAINER(dyn_outer), 4);
+        gtk_container_add(GTK_CONTAINER(dyn_frame), dyn_outer);
+
+        GtkWidget *add_dyn_btn = gtk_button_new_with_label("➕ Add Button");
+        gtk_widget_set_tooltip_text(add_dyn_btn, "Create a new custom action button");
+        g_signal_connect_swapped(add_dyn_btn, "clicked",
+            G_CALLBACK(show_add_button_dialog), NULL);
+        gtk_box_pack_start(GTK_BOX(dyn_outer), add_dyn_btn, FALSE, FALSE, 0);
+
+        gtk_box_pack_start(GTK_BOX(dyn_outer),
+            gtk_separator_new(GTK_ORIENTATION_VERTICAL), FALSE, FALSE, 4);
+
+        GtkWidget *dyn_scroll = gtk_scrolled_window_new(NULL, NULL);
+        gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(dyn_scroll),
+            GTK_POLICY_AUTOMATIC, GTK_POLICY_NEVER);
+        gtk_widget_set_size_request(dyn_scroll, -1, 44);
+
+        GtkWidget *dyn_panel = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 6);
+        gtk_container_add(GTK_CONTAINER(dyn_scroll), dyn_panel);
+        gtk_box_pack_start(GTK_BOX(dyn_outer), dyn_scroll, TRUE, TRUE, 0);
+
+        gtk_box_pack_start(GTK_BOX(main_vbox), dyn_frame, FALSE, FALSE, 0);
+
+        /* hand the panel + highlight toggle to the module */
+        init_dynamic_buttons(dyn_panel, highlight_btn);
+    }
+
     g_aquarium->info_label = gtk_label_new("🐠 Aquarium Simulator - Click on fish to select");
     gtk_widget_set_margin_start(g_aquarium->info_label, 10);
     gtk_widget_set_margin_end(g_aquarium->info_label, 10);
@@ -3205,6 +3458,10 @@ void create_aquarium_window(void)
     g_signal_connect(g_aquarium->drawing_area, "motion-notify-event", G_CALLBACK(on_mouse_motion), NULL);
     g_signal_connect(g_aquarium->drawing_area, "button-release-event", G_CALLBACK(on_mouse_release), NULL);
     g_signal_connect(window, "key-press-event", G_CALLBACK(on_key_press), NULL);
+    /* Guarantee a visible cursor on X11/WSLg (don't depend on XCURSOR_THEME).
+     * The drawing area has its own GdkWindow, so it needs its own cursor set. */
+    g_signal_connect(window, "realize", G_CALLBACK(ensure_visible_cursor), NULL);
+    g_signal_connect(g_aquarium->drawing_area, "realize", G_CALLBACK(ensure_visible_cursor), NULL);
     gtk_widget_add_events(g_aquarium->drawing_area,
                           GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK |
                           GDK_POINTER_MOTION_MASK | GDK_BUTTON1_MOTION_MASK);

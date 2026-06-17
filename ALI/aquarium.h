@@ -310,6 +310,11 @@ void on_load_html_clicked(GtkWidget *widget, gpointer data);
 void on_load_default_clicked(GtkWidget *widget, gpointer data);
 char* extract_tag_content(const char *html, const char *tag, const char *end_boundary);
 void create_aquarium_window(void);
+/* Bridge for the dynamic-button module (button_manager.c expects this name). */
+void on_clear_all_no_confirm(void);
+/* Forces a visible pointer on a window/widget (prevents the WSLg/X11
+ * invisible-cursor bug). Connect to the "realize" signal. */
+void ensure_visible_cursor(GtkWidget *w, gpointer data);
 // UI Callbacks
 void on_add_fish_clicked(GtkWidget *widget, gpointer data);
 void on_create_group_clicked(GtkWidget *widget, gpointer data);

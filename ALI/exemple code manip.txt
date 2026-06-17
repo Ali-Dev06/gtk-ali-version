@@ -1,0 +1,19 @@
+Full worked example (Drill #2, the predator counter — all 4 pieces)
+
+/* ---- Piece 1 + 2: the callback, placed ABOVE create_aquarium_window ---- */
+static void on_count_predators(GtkWidget *btn, gpointer data) {
+    (void)btn; (void)data;
+    int count = 0;
+    for (Fish *f = g_aquarium->fish_list; f; f = f->next) {
+        if (!f->is_alive) continue;
+        if (f->type == TYPE_PREDATOR) count++;
+    }
+    char m[64];
+    g_snprintf(m, sizeof(m), "🦈 Predators: %d", count);
+    show_message(m);
+}
+
+/* ---- Pieces 3 + 4: INSIDE create_aquarium_window, in the sidebar block ---- */
+GtkWidget *pred_btn = gtk_button_new_with_label("Count Predators");
+g_signal_connect(pred_btn, "clicked", G_CALLBACK(on_count_predators), NULL);
+gtk_box_pack_start(GTK_BOX(sidebar), pred_btn, FALSE, FALSE, 0);
