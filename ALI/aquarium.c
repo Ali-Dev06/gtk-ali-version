@@ -2763,6 +2763,8 @@ void load_aquarium_from_html(const char *filename) {
             char *species = extract_tag_content(div, "species", fish_end);
             char *x_str = extract_tag_content(div, "x", fish_end);
             char *y_str = extract_tag_content(div, "y", fish_end);
+            char *vx_str = extract_tag_content(div, "vx", fish_end);
+            char *vy_str = extract_tag_content(div, "vy", fish_end);
             char *size_str = extract_tag_content(div, "size", fish_end);
             char *speed_str = extract_tag_content(div, "speed", fish_end);
             char *type_str = extract_tag_content(div, "type", fish_end);
@@ -2784,7 +2786,11 @@ void load_aquarium_from_html(const char *filename) {
                                               atof(x_str), atof(y_str), atof(size_str), atof(speed_str),
                                               atoi(type_str), atoi(diet_str), atoi(gender_str), atoi(facing_str));
                 new_fish->id = fish_id;
-                
+
+                // Restore exact swim direction/speed it had when saved
+                if (vx_str) new_fish->vx = atof(vx_str);
+                if (vy_str) new_fish->vy = atof(vy_str);
+
                 // Restore ecosystem state
                 if (personality_str) new_fish->personality = atoi(personality_str);
                 if (life_stage_str) new_fish->life_stage = atoi(life_stage_str);
@@ -2796,7 +2802,7 @@ void load_aquarium_from_html(const char *filename) {
                 add_fish(new_fish);
             }
             
-            free(species); free(x_str); free(y_str); free(size_str); free(speed_str);
+            free(species); free(x_str); free(y_str); free(vx_str); free(vy_str); free(size_str); free(speed_str);
             free(type_str); free(diet_str); free(gender_str); free(facing_str); free(image_path);
             free(personality_str); free(life_stage_str); free(generation_str);
             free(lifespan_str); free(base_size_str); free(base_speed_str);
@@ -2810,18 +2816,35 @@ void load_aquarium_from_html(const char *filename) {
         while ((div = strstr(div + 1, "<div id=\"group_")) && div < group_end) {
             char *group_name = extract_tag_content(div, "group_name", group_end);
             char *leader_id_str = extract_tag_content(div, "leader_id", group_end);
-            
+            char *members_str = extract_tag_content(div, "members", group_end);
+
             if (group_name && leader_id_str) {
                 int leader_id = atoi(leader_id_str);
                 Fish *leader = g_aquarium->fish_list;
                 while (leader && leader->id != leader_id) leader = leader->next;
-                
+
                 if (leader) {
-                    create_group(group_name, leader);
+                    Group *group = create_group(group_name, leader);
+
+                    /* Re-link every saved member back into the group.
+                     * The <members> list is comma-separated fish ids and includes
+                     * the leader, so we skip the leader (already added above). */
+                    if (group && members_str) {
+                        char *token = strtok(members_str, ",");
+                        while (token) {
+                            int member_id = atoi(token);
+                            if (member_id != leader_id) {
+                                Fish *member = g_aquarium->fish_list;
+                                while (member && member->id != member_id) member = member->next;
+                                if (member) add_fish_to_group(group, member);
+                            }
+                            token = strtok(NULL, ",");
+                        }
+                    }
                 }
             }
-            
-            free(group_name); free(leader_id_str);
+
+            free(group_name); free(leader_id_str); free(members_str);
         }
     }
     
@@ -2944,11 +2967,52 @@ static void on_quick_add_species(GtkWidget *btn, gpointer data)
     const PresetFish *p = preset_fish_get(idx);
     if (!p || !g_aquarium)
         return;
-    spawn_fish_from_preset(p, 1, 0, 0, p->type, 0); /* count 1, default size/speed/type */
+
+    /* Each species has one Quick-Add school named "<Species> School".
+     * The first Quick-Added fish of a species becomes that school's leader;
+     * every later Quick-Add of the same species joins it (follows the leader). */
+    char group_name[128];
+    g_snprintf(group_name, sizeof(group_name), "%s School", p->species);
+
+    Group *school = NULL;
+    for (Group *g = g_aquarium->group_list; g; g = g->next) {
+        if (g->name && g_strcmp0(g->name, group_name) == 0 && g->member_count > 0) {
+            school = g;
+            break;
+        }
+    }
+
+    /* Build the fish with the preset's default look/stats. */
+    char *image_path = preset_fish_image_path(idx); /* malloc'd or NULL */
+    float bx = 120.0f + (float)(rand() % (g_aquarium->width  > 240 ? g_aquarium->width  - 240 : 400));
+    float by = 120.0f + (float)(rand() % (g_aquarium->height > 240 ? g_aquarium->height - 240 : 400));
+    Gender gender = (rand() % 2 == 0) ? GENDER_MALE : GENDER_FEMALE;
+    FishDirection facing = (rand() % 2 == 0) ? DIRECTION_RIGHT : DIRECTION_LEFT;
+
+    Fish *fish = create_fish(p->species, image_path, bx, by,
+                             p->default_size, p->default_speed,
+                             p->type, p->diet, gender, facing);
+    add_fish(fish);
+    if (image_path)
+        g_free(image_path);
+
+    int joined;
+    if (school) {
+        add_fish_to_group(school, fish); /* follow the existing leader */
+        joined = 1;
+    } else {
+        create_group(group_name, fish); /* first of its kind -> becomes leader */
+        joined = 0;
+    }
+    g_aquarium->selected_fish = fish;
+
     update_ui_info();
     gtk_widget_queue_draw(g_aquarium->drawing_area);
-    char m[128];
-    g_snprintf(m, sizeof(m), "➕ Added a %s", p->species);
+    char m[160];
+    if (joined)
+        g_snprintf(m, sizeof(m), "➕ Added a %s (joined its school)", p->species);
+    else
+        g_snprintf(m, sizeof(m), "➕ Added a %s (new school leader)", p->species);
     show_message(m);
 }
 
